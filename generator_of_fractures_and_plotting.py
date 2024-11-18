@@ -17,6 +17,8 @@ def plotting_of_dfn(parameters, fractures):
     image = Image.new('RGBA', amount_of_pixels, image_background_colour)
     draw = ImageDraw.Draw(image)
     for fr in fractures:
+        # it used to be t = 0.5 * fr.r * np.array([-fr.normal[2], fr.normal[1], 0]),
+        # but I would get vertical lines only, I guess because of the z component being zero
         t = 0.5 * fr.r * np.array([-fr.normal[1], fr.normal[0], 0])
         a = scale_cut(0.5 + fr.center - t, amount_of_pixels)
         b = scale_cut(0.5 + fr.center + t, amount_of_pixels)
@@ -56,7 +58,7 @@ def fractures_generation(parameters):
     for fr in fractures:
         fr.normal = np.array([fr.normal[0], fr.normal[1], 0])
         updated_fractures.append(fr)
-    print("Information about the first fracture for reference:")
-    print(updated_fractures[0])
+    print(f"Information about the first fracture for reference:{updated_fractures[0]}")
+    print(f"First fracture shape_angle value:{updated_fractures[0].shape_angle}")
     plotting_of_dfn(parameters, updated_fractures)
     return updated_fractures
