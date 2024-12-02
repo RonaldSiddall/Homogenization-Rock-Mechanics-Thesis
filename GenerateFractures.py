@@ -28,11 +28,8 @@ class GenerateFractures:
         based on the configuration parameters
         """
 
-        # Calculates power from k_r parameter - reason in theory...
-        power = self.k_r - 3
-
         # Generates size distribution based on power law and diameter range
-        size = dfn.PowerLawSize.from_mean_area(power, self.diam_range, self.p32_r_0_to_infty)
+        size = dfn.PowerLawSize.from_mean_area(self.k_r, self.diam_range, self.p32_r_0_to_infty)
 
         # Sets sample range for fracture sizes
         size.set_sample_range(self.sample_range)
@@ -41,7 +38,8 @@ class GenerateFractures:
         family = dfn.FrFamily(
             orientation=dfn.FisherOrientation(self.fisher_trend, self.fisher_plunge, self.fisher_concentration),
             size=size,
-            shape_angle=dfn.VonMisesOrientation(self.von_mises_trend, self.von_mises_concentration)
+            shape_angle=dfn.VonMisesOrientation(self.von_mises_trend, self.von_mises_concentration),
+            name='fractures'
         )
 
         # Defines the domain of the fractures based on the rectangle dimensions
@@ -73,7 +71,6 @@ class GenerateFractures:
             fr.normal = np.array([fr.normal[0], fr.normal[1], 0])
             updated_fractures.append(fr)
 
-        # Create a FractureSet from the updated_fractures
+        # Create a FractureSet from the updated_fractures and returns it
         fracture_set = FractureSet.from_list(updated_fractures)
-
         return fracture_set
