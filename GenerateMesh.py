@@ -4,6 +4,7 @@ import numpy as np
 from bgem.gmsh import gmsh
 from bgem.gmsh import options as gmsh_options
 from bgem.stochastic.fr_set import LineShape
+from bgem.gmsh import heal_mesh
 
 
 class GenerateMesh:
@@ -62,7 +63,7 @@ class GenerateMesh:
             # scale: fr.rx is the radius of the fracture, so it's multiplied by 2 to get full length of given fracture
             # rotate: projects the fracture into the XY plane
             # translate: also projects the fracture into the XY plane
-            shape = shape.scale([2*fr.rx, 0, 0]) \
+            shape = shape.scale([2 * fr.rx, 0, 0]) \
                 .rotate(axis=np.array([0, 0, 1]), angle=angle) \
                 .translate(np.array([fr.center[0], fr.center[1], 0]))
             shapes.append(shape)
@@ -106,7 +107,7 @@ class GenerateMesh:
 
         # This groups the fractures into a physical group, including the points that are the intersections
         # of the fractures and the boundary
-        fractures_group = factory.group(*fracture_fragments).modify_regions("fractures")
+        fractures_group = factory.group(*fracture_fragments).set_region("fractures")
         fractures_group = fractures_group.intersect(rectangle.copy())
 
         # Fragments the fractures with the rectangle
@@ -120,8 +121,8 @@ class GenerateMesh:
         # the rectangle, but also the points of intersecting fractures with the boundary
         rectangle_all = []
         for name, side_tool in sides.items():
-            isec = boundary_of_fragmented_rectangle.select_by_intersect(side_tool)
-            rectangle_all.append(isec.modify_regions("." + name))
+            intersections = boundary_of_fragmented_rectangle.select_by_intersect(side_tool)
+            rectangle_all.append(intersections.modify_regions("." + name))
         rectangle_all.extend([fragmented_rectangle])
 
         # This group contains all points within domain (including intersections between fractures and fractures
@@ -130,7 +131,7 @@ class GenerateMesh:
 
         # This contains all the intersecting points between the fractures and the whole boundary (all 4 sides)
         # Does not include the 4 points in the vertices of the domain
-        fractures_rectangle_boundary = boundary_fractures_group.select_by_intersect(boundary_of_rectangle).modify_regions("{}_intersects_with_boundary")
+        fractures_rectangle_boundary = boundary_fractures_group.select_by_intersect(boundary_of_rectangle)
 
         # This groups all the fractures that are on the boundary of the rectangle
         boundary_fractures_group = factory.group(fractures_rectangle_boundary)
@@ -139,13 +140,14 @@ class GenerateMesh:
         # and boundary that are on that given side of the rectangle
         sides_fractures = []
         for name, side in sides.items():
-            side_fractures = fractures_rectangle_boundary.select_by_intersect(sides[f"{name}"]).set_region(f".{name}_fractures")
+            side_fractures = fractures_rectangle_boundary.select_by_intersect(sides[f"{name}"]).set_region(
+                f".{name}_fractures")
             sides_fractures.append(side_fractures)
 
         print("Finishing geometry...")
 
         # Defines mesh groups that are used in meshing
-        mesh_groups = [*rectangle_all, fractures_fragmented, boundary_fractures_group, *sides_fractures]
+        mesh_groups = [*rectangle_all, fractures_fragmented, *sides_fractures]
 
         # Sets the mesh step for the fragmented fractures
         fractures_fragmented.mesh_step(self.fracture_mesh_step)
@@ -153,7 +155,6 @@ class GenerateMesh:
         # Finalizes the mesh and removes any duplicate entities
         factory.keep_only(*mesh_groups)
         factory.remove_duplicate_entities()
-        factory.write_brep()
 
         # Sets the mesh element size
         min_element_size = self.fracture_mesh_step / 10
@@ -176,18 +177,22 @@ class GenerateMesh:
 
         # Creates the 2D mesh and saves it in the required format for FLOW123D
         factory.make_mesh(mesh_groups, dim=2)
-        factory.write_mesh(format=gmsh.MeshFormat.msh2)
-        os.rename(self.mesh_file_name + ".msh2", self.mesh_file_name + ".msh")
+        factory.write_mesh(format=gmsh.MeshFormat.msh)
 
         # Method that prints the parameter summary
         self.parameters_info_print_out()
         factory.show()
 
+        # These lines heal the created .msh file, so that it can be simulated
+        hm = heal_mesh.HealMesh.read_mesh(self.mesh_file_name + ".msh")
+        hm.heal_mesh(gamma_tol=0.01)
+        hm.write(self.mesh_file_name + "_healed.msh")
+
     def parameters_info_print_out(self):
         print("====================== PARAMETERS SUMMARY ======================")
         print("\nGeneral parameters:")
         print(f"  - Mesh file name: {self.mesh_file_name}.msh")
-        print(f"  - Rectangle dimensions: [{self.rectangle_dimensions}, 0]")
+        print(f"  - Rectangle dimensions: {self.rectangle_dimensions}")
         print(f"  - Fracture mesh step: {self.fracture_mesh_step}")
         print(f"  - Tolerance (initial Delaunay): {self.tolerance_initial_delaunay}")
         print(f"  - GMSH options, tolerance: {self.tolerance}")
