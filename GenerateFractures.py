@@ -1,26 +1,29 @@
 from bgem.stochastic import dfn, fr_set
 import numpy as np
-from Config_manager import ConfigManager
+from ConfigManager import ConfigManager
 from bgem.stochastic.fr_set import FractureSet
-
+from check_values_in_config_file import check_values_in_config_file_mesh
 
 class GenerateFractures:
     # Initiation of the used parameters from the config.yaml file
     def __init__(self, config_file):
+        # This checks the values within the config file
+        control_variable = check_values_in_config_file_mesh(config_file)
+        if control_variable is False:
+            return  # Skips everything if validation failed
+
+        # Loading of needed values from config file
         self.config = ConfigManager(config_file)
         self.rectangle_dimensions = self.config.get_rectangle_dimensions()
-
         self.sample_range = self.config.get_sample_range()
         self.k_r = self.config.get_k_r()
         self.diam_range = self.config.get_diam_range()
-        self.p32_r_0_to_infty = self.config.get_p32_r_0_to_infty()
-
+        self.p32_r_0_to_infty = self.config.get_p32_r0_to_r_infty()
         self.fisher_trend = self.config.get_fisher_trend()
         self.fisher_plunge = self.config.get_fisher_plunge()
-        self.fisher_concentration = self.config.get_fisher_concentration()
-
+        self.fisher_kappa = self.config.get_fisher_kappa()
         self.von_mises_trend = self.config.get_von_mises_trend()
-        self.von_mises_concentration = self.config.get_von_mises_concentration()
+        self.von_mises_kappa = self.config.get_von_mises_kappa()
 
     def generator_of_fracture_set(self):
         """
@@ -36,11 +39,10 @@ class GenerateFractures:
 
         # Defines fracture family properties: orientation and size distribution
         family = dfn.FrFamily(
-            orientation=dfn.FisherOrientation(self.fisher_trend, self.fisher_plunge, self.fisher_concentration),
+            orientation=dfn.FisherOrientation(self.fisher_trend, self.fisher_plunge, self.fisher_kappa),
             size=size,
-            shape_angle=dfn.VonMisesOrientation(self.von_mises_trend, self.von_mises_concentration),
-            name='fractures'
-        )
+            shape_angle=dfn.VonMisesOrientation(self.von_mises_trend, self.von_mises_kappa),
+            name='fractures')
 
         # Defines the domain of the fractures based on the rectangle dimensions
         domain = (self.rectangle_dimensions[0], self.rectangle_dimensions[1], 0)
@@ -49,8 +51,7 @@ class GenerateFractures:
         population_of_fractures = dfn.Population(
             domain=domain,
             families=[family],
-            shape=fr_set.LineShape()
-        )
+            shape=fr_set.LineShape())
 
         # Sets sample range for population of fractures
         population_of_fractures.set_sample_range(self.sample_range)
@@ -71,6 +72,6 @@ class GenerateFractures:
             fr.normal = np.array([fr.normal[0], fr.normal[1], 0])
             updated_fractures.append(fr)
 
-        # Create a FractureSet from the updated_fractures and returns it
+        # Creates a FractureSet from the updated_fractures and returns it
         fracture_set = FractureSet.from_list(updated_fractures)
         return fracture_set
