@@ -1,31 +1,36 @@
-from Config_manager import ConfigManager
+import contextlib
+import sys
+
+from ConfigManager import ConfigManager
 import os
 import numpy as np
 from bgem.gmsh import gmsh
 from bgem.gmsh import options as gmsh_options
 from bgem.stochastic.fr_set import LineShape
 from bgem.gmsh import heal_mesh
-
+from path_manager import get_all_needed_paths_mesh
 
 class GenerateMesh:
     # Initiation of the used parameters from the config.yaml file
     def __init__(self, config_file, fracture_set):
+        # Loading of the config_file
         self.config = ConfigManager(config_file)
-
+        # General settings - output
+        needed_paths = get_all_needed_paths_mesh(config_file)
+        self.config_path = needed_paths[0]
+        self.mesh_file_path = needed_paths[1]
+        self.fracture_set = fracture_set
         # DFN parameters
         self.rectangle_dimensions = self.config.get_rectangle_dimensions()
         self.sample_range = self.config.get_sample_range()
         self.k_r = self.config.get_k_r()
         self.diam_range = self.config.get_diam_range()
-        self.p32_r_0_to_infty = self.config.get_p32_r_0_to_infty()
+        self.p32_r0_to_r_infty = self.config.get_p32_r0_to_r_infty()
         self.fisher_trend = self.config.get_fisher_trend()
         self.fisher_plunge = self.config.get_fisher_plunge()
-        self.fisher_concentration = self.config.get_fisher_concentration()
+        self.fisher_kappa = self.config.get_fisher_kappa()
         self.von_mises_trend = self.config.get_von_mises_trend()
-        self.von_mises_concentration = self.config.get_von_mises_concentration()
-
-        # Output
-        self.mesh_file_name = self.config.get_mesh_file_name()
+        self.von_mises_kappa = self.config.get_von_mises_kappa()
 
         # GMSH and mesh parameters
         self.tolerance_initial_delaunay = self.config.get_tolerance_initial_delaunay()
@@ -35,6 +40,10 @@ class GenerateMesh:
 
         # FractureSet that contains all the Fracture objects from the GenerateFractures class
         self.fracture_set = fracture_set
+
+        # Optional settings
+        self.display_fracture_network = self.config.get_display_fracture_network()
+
 
     def create_fractures_lines(self, factory, base_shape: 'ObjectSet'):
         """
@@ -76,7 +85,7 @@ class GenerateMesh:
         """
         This method generates the geometry and mesh for the fractured domain using GMSH
         """
-        factory = gmsh.GeometryOCC(self.mesh_file_name, verbose=True)
+        factory = gmsh.GeometryOCC(self.mesh_file_path.removesuffix(".msh"), verbose=True)
         gopt = gmsh_options.Geometry()
         gopt.Tolerance = self.tolerance
         gopt.ToleranceBoolean = self.tolerance_boolean
@@ -94,17 +103,16 @@ class GenerateMesh:
             "side_x0": side_x.copy().translate([0, 0, -self.rectangle_dimensions[0] / 2]).rotate([0, 1, 0], np.pi / 2),
             "side_x1": side_x.copy().translate([0, 0, self.rectangle_dimensions[0] / 2]).rotate([0, 1, 0], np.pi / 2)
         }
-
         # Creates regions for each side of the rectangle
         for name, side in sides.items():
             side.modify_regions(name)
-
         # This is the region (physical group), that defines the domain ie the rectangle
         boundary_of_rectangle = rectangle.get_boundary().copy()
 
         # Generates fractures that are fragmented
-        fracture_fragments = self.create_fractures_lines(factory, LineShape.gmsh_base_shape(self, factory))
-
+        #fracture_fragments = self.create_fractures_lines(factory, LineShape.gmsh_base_shape(self, factory))
+        with contextlib.redirect_stdout(None):
+            fracture_fragments = self.create_fractures_lines(factory, LineShape.gmsh_base_shape(self, factory))
         # This groups the fractures into a physical group, including the points that are the intersections
         # of the fractures and the boundary
         fractures_group = factory.group(*fracture_fragments).set_region("fractures")
@@ -155,14 +163,12 @@ class GenerateMesh:
         # Finalizes the mesh and removes any duplicate entities
         factory.keep_only(*mesh_groups)
         factory.remove_duplicate_entities()
-
         # Sets the mesh element size
         min_element_size = self.fracture_mesh_step / 10
         max_element_size = np.max(self.rectangle_dimensions) / 8
 
         # Sets mesh options
         mesh = gmsh_options.Mesh()
-
         # These are the pre-set options
         mesh.CharacteristicLengthFromPoints = True
         mesh.CharacteristicLengthFromCurvature = True
@@ -176,42 +182,23 @@ class GenerateMesh:
         mesh.CharacteristicLengthMax = max_element_size
 
         # Creates the 2D mesh and saves it in the required format for FLOW123D
-        factory.make_mesh(mesh_groups, dim=2)
-        factory.write_mesh(format=gmsh.MeshFormat.msh)
+        with contextlib.redirect_stdout(None):
+            factory.make_mesh(mesh_groups, dim=2)
+            factory.write_mesh(format=gmsh.MeshFormat.msh)
 
-        # Method that prints the parameter summary
-        self.parameters_info_print_out()
-        factory.show()
+        if self.display_fracture_network == "yes":
+            factory.show()
 
         # These lines heal the created .msh file, so that it can be simulated
-        hm = heal_mesh.HealMesh.read_mesh(self.mesh_file_name + ".msh")
+        hm = heal_mesh.HealMesh.read_mesh(self.mesh_file_path)
         hm.heal_mesh(gamma_tol=0.01)
-        hm.write(self.mesh_file_name + "_healed.msh")
+        healed_msh_file_path = self.mesh_file_path.replace(".msh", "_healed.msh")
+        #with open(os.devnull, 'w') as f, contextlib.redirect_stdout(f), contextlib.redirect_stderr(f):
+        #    try:
+        #        hm.write(healed_msh_file_path)
+        #    except Exception:
+        #        pass
+        hm.write(healed_msh_file_path)
+        return healed_msh_file_path
 
-    def parameters_info_print_out(self):
-        print("====================== PARAMETERS SUMMARY ======================")
-        print("\nGeneral parameters:")
-        print(f"  - Mesh file name: {self.mesh_file_name}.msh")
-        print(f"  - Rectangle dimensions: {self.rectangle_dimensions}")
-        print(f"  - Fracture mesh step: {self.fracture_mesh_step}")
-        print(f"  - Tolerance (initial Delaunay): {self.tolerance_initial_delaunay}")
-        print(f"  - GMSH options, tolerance: {self.tolerance}")
-        print(f"  - GMSH options, tolerance boolean: {self.tolerance_boolean}")
 
-        print("\nFracture parameters:")
-        print(f"  - Number of fractures: {len(self.fracture_set)}")
-        print(f"  - domain: {(self.rectangle_dimensions[0], self.rectangle_dimensions[1], 0)}")
-        print(f"  - Diam range: {self.diam_range}")
-        print(f"  - Sample range: {self.sample_range}")
-        print(f"  - k_r: {self.k_r}")
-        print(f"  - p32_r_0_to_infty: {self.p32_r_0_to_infty}")
-        print("\nFisher orientation parameters:")
-        print(f"  - Fisher trend: {self.fisher_trend}")
-        print(f"  - Fisher plunge: {self.fisher_plunge}")
-        print(
-            f"  - Fisher concentration: {self.fisher_concentration}")
-        print("\nVon Mises parameters:")
-        print(f"  - Von Mises trend: {self.von_mises_trend}")
-        print(
-            f"  - Von Mises concentration: {self.von_mises_concentration}")
-        print("==================================================================")
