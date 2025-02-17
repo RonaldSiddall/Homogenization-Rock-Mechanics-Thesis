@@ -1,0 +1,13 @@
+==========================================================================================
+                    Effective elastic tensor in matrix form for 2D problems with DFN 
+==========================================================================================
+
+            473.2673273304933           -34.611934305927754       -42.59435309112325
+C =         23.32465916953731         468.10718127167206       -39.136893051519436
+            2.0243440560503343          19.557904169073744       204.0428167921109
+
+------------------------------------------------------------------------------------------
+This result was computed using these files:
+C:\Plocha\Bachelor_thesis\Python_scripts\Analysis_geometries\case_04\output_case_04\mechanics\mechanics-000000.vtu
+C:\Plocha\Bachelor_thesis\Python_scripts\Analysis_geometries\case_04\output_case_04\mechanics\mechanics-000001.vtu
+C:\Plocha\Bachelor_thesis\Python_scripts\Analysis_geometries\case_04\output_case_04\mechanics\mechanics-000002.vtu
