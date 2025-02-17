@@ -1,0 +1,178 @@
+column_names: [ flux,  flux_in,  flux_out,  mass,  source,  source_in,  source_out,  flux_increment,  source_increment,  flux_cumulative,  source_cumulative,  error ]
+data:
+  - time: 0
+    region: fractures
+    quantity: water_volume
+    data: [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ]
+  - time: 0
+    region: rock
+    quantity: water_volume
+    data: [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ]
+  - time: 0
+    region: .side_y0_fractures
+    quantity: water_volume
+    data: [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ]
+  - time: 0
+    region: .side_y1_fractures
+    quantity: water_volume
+    data: [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ]
+  - time: 0
+    region: .side_x0_fractures
+    quantity: water_volume
+    data: [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ]
+  - time: 0
+    region: .side_x1_fractures
+    quantity: water_volume
+    data: [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ]
+  - time: 0
+    region: .side_y0
+    quantity: water_volume
+    data: [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ]
+  - time: 0
+    region: .side_y1
+    quantity: water_volume
+    data: [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ]
+  - time: 0
+    region: .side_x0
+    quantity: water_volume
+    data: [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ]
+  - time: 0
+    region: .side_x1
+    quantity: water_volume
+    data: [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ]
+  - time: 0
+    region: .IMPLICIT_BOUNDARY
+    quantity: water_volume
+    data: [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ]
+  - time: 1
+    region: fractures
+    quantity: water_volume
+    data: [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ]
+  - time: 1
+    region: rock
+    quantity: water_volume
+    data: [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ]
+  - time: 1
+    region: .side_y0_fractures
+    quantity: water_volume
+    data: [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ]
+  - time: 1
+    region: .side_y1_fractures
+    quantity: water_volume
+    data: [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ]
+  - time: 1
+    region: .side_x0_fractures
+    quantity: water_volume
+    data: [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ]
+  - time: 1
+    region: .side_x1_fractures
+    quantity: water_volume
+    data: [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ]
+  - time: 1
+    region: .side_y0
+    quantity: water_volume
+    data: [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ]
+  - time: 1
+    region: .side_y1
+    quantity: water_volume
+    data: [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ]
+  - time: 1
+    region: .side_x0
+    quantity: water_volume
+    data: [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ]
+  - time: 1
+    region: .side_x1
+    quantity: water_volume
+    data: [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ]
+  - time: 1
+    region: .IMPLICIT_BOUNDARY
+    quantity: water_volume
+    data: [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ]
+  - time: 2
+    region: fractures
+    quantity: water_volume
+    data: [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ]
+  - time: 2
+    region: rock
+    quantity: water_volume
+    data: [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ]
+  - time: 2
+    region: .side_y0_fractures
+    quantity: water_volume
+    data: [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ]
+  - time: 2
+    region: .side_y1_fractures
+    quantity: water_volume
+    data: [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ]
+  - time: 2
+    region: .side_x0_fractures
+    quantity: water_volume
+    data: [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ]
+  - time: 2
+    region: .side_x1_fractures
+    quantity: water_volume
+    data: [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ]
+  - time: 2
+    region: .side_y0
+    quantity: water_volume
+    data: [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ]
+  - time: 2
+    region: .side_y1
+    quantity: water_volume
+    data: [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ]
+  - time: 2
+    region: .side_x0
+    quantity: water_volume
+    data: [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ]
+  - time: 2
+    region: .side_x1
+    quantity: water_volume
+    data: [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ]
+  - time: 2
+    region: .IMPLICIT_BOUNDARY
+    quantity: water_volume
+    data: [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ]
+  - time: 3
+    region: fractures
+    quantity: water_volume
+    data: [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ]
+  - time: 3
+    region: rock
+    quantity: water_volume
+    data: [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ]
+  - time: 3
+    region: .side_y0_fractures
+    quantity: water_volume
+    data: [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ]
+  - time: 3
+    region: .side_y1_fractures
+    quantity: water_volume
+    data: [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ]
+  - time: 3
+    region: .side_x0_fractures
+    quantity: water_volume
+    data: [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ]
+  - time: 3
+    region: .side_x1_fractures
+    quantity: water_volume
+    data: [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ]
+  - time: 3
+    region: .side_y0
+    quantity: water_volume
+    data: [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ]
+  - time: 3
+    region: .side_y1
+    quantity: water_volume
+    data: [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ]
+  - time: 3
+    region: .side_x0
+    quantity: water_volume
+    data: [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ]
+  - time: 3
+    region: .side_x1
+    quantity: water_volume
+    data: [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ]
+  - time: 3
+    region: .IMPLICIT_BOUNDARY
+    quantity: water_volume
+    data: [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ]

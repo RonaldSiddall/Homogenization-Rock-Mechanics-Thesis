@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<VTKFile type="Collection" version="0.1" byte_order="LittleEndian">
+<Collection>
+<DataSet timestep="0" group="" part="0" file="mechanics/mechanics-000000.vtu"/>
+<DataSet timestep="1" group="" part="0" file="mechanics/mechanics-000001.vtu"/>
+<DataSet timestep="2" group="" part="0" file="mechanics/mechanics-000002.vtu"/>
+<DataSet timestep="3" group="" part="0" file="mechanics/mechanics-000003.vtu"/>
+<DataSet timestep="4" group="" part="0" file="mechanics/mechanics-000004.vtu"/>
+<DataSet timestep="5" group="" part="0" file="mechanics/mechanics-000005.vtu"/>
+<DataSet timestep="6" group="" part="0" file="mechanics/mechanics-000006.vtu"/>
+<DataSet timestep="7" group="" part="0" file="mechanics/mechanics-000007.vtu"/>
+<DataSet timestep="8" group="" part="0" file="mechanics/mechanics-000008.vtu"/>
+<DataSet timestep="9" group="" part="0" file="mechanics/mechanics-000009.vtu"/>
+<DataSet timestep="10" group="" part="0" file="mechanics/mechanics-000010.vtu"/>
+<DataSet timestep="11" group="" part="0" file="mechanics/mechanics-000011.vtu"/>
+<DataSet timestep="12" group="" part="0" file="mechanics/mechanics-000012.vtu"/>
+<DataSet timestep="13" group="" part="0" file="mechanics/mechanics-000013.vtu"/>
+<DataSet timestep="14" group="" part="0" file="mechanics/mechanics-000014.vtu"/>
+<DataSet timestep="15" group="" part="0" file="mechanics/mechanics-000015.vtu"/>
+<DataSet timestep="16" group="" part="0" file="mechanics/mechanics-000016.vtu"/>
+<DataSet timestep="17" group="" part="0" file="mechanics/mechanics-000017.vtu"/>
+<DataSet timestep="18" group="" part="0" file="mechanics/mechanics-000018.vtu"/>
+<DataSet timestep="19" group="" part="0" file="mechanics/mechanics-000019.vtu"/>
+<DataSet timestep="20" group="" part="0" file="mechanics/mechanics-000020.vtu"/>
+<DataSet timestep="21" group="" part="0" file="mechanics/mechanics-000021.vtu"/>
+<DataSet timestep="22" group="" part="0" file="mechanics/mechanics-000022.vtu"/>
+<DataSet timestep="23" group="" part="0" file="mechanics/mechanics-000023.vtu"/>
+<DataSet timestep="24" group="" part="0" file="mechanics/mechanics-000024.vtu"/>
+<DataSet timestep="25" group="" part="0" file="mechanics/mechanics-000025.vtu"/>
+<DataSet timestep="26" group="" part="0" file="mechanics/mechanics-000026.vtu"/>
+<DataSet timestep="27" group="" part="0" file="mechanics/mechanics-000027.vtu"/>
+<DataSet timestep="28" group="" part="0" file="mechanics/mechanics-000028.vtu"/>
+<DataSet timestep="29" group="" part="0" file="mechanics/mechanics-000029.vtu"/>
+<DataSet timestep="30" group="" part="0" file="mechanics/mechanics-000030.vtu"/>
+<DataSet timestep="31" group="" part="0" file="mechanics/mechanics-000031.vtu"/>
+<DataSet timestep="32" group="" part="0" file="mechanics/mechanics-000032.vtu"/>
+<DataSet timestep="33" group="" part="0" file="mechanics/mechanics-000033.vtu"/>
+<DataSet timestep="34" group="" part="0" file="mechanics/mechanics-000034.vtu"/>
+<DataSet timestep="35" group="" part="0" file="mechanics/mechanics-000035.vtu"/>
+<DataSet timestep="36" group="" part="0" file="mechanics/mechanics-000036.vtu"/>
+</Collection>
+</VTKFile>
