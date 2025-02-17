@@ -1,0 +1,151 @@
+absolute_path_to_project: "C:/Plocha/Bachelor_thesis/Python_scripts/"
+# Important, all other directories from this point forward are relative to the absolute path above!
+
+#*********************************************************************************************************************
+# Settings for the script create_mesh.py that creates .msh (and also _healed.msh) file
+mesh_and_fracture_network_settings:
+  general_settings:
+    # input: path to config file, can be relative or absolute, program can handle both
+    output:
+      # Directory where the mesh file (also including the healed mesh file) will be created
+      dir_where_mesh_is_created: "mesh_generation_results/custom_config.yaml"
+
+      # Do you want to change the name of the generated mesh file?
+      # Set "yes" to use a new name, "no" will use the default names: created_mesh.msh, created_mesh_healed.msh
+      # Important: The name of the healed mesh file will also be changed accordingly
+      # The ".msh" extension will be automatically added, do not add it here
+      customize_mesh_name: "no"
+      new_mesh_file_name: "example"
+
+  discreet_fracture_network_parameters:
+    # These are the dimensions of the domain, that the fractures will be generated in
+    # [1, 1] is a unit square with its middle point in the origin of the XYZ coordinates
+    # [2, 1] would be a rectangle that also has its middle point in the origin
+    # All types of rectangles (squares) are possible, the dimensions must not be less or equal to zero
+    rectangle_dimensions: [1, 1]
+
+    # SKB: interval [r_min, r_max], defined for 0 < r_min < r_max
+    sample_range: [0.038, 169]
+
+    # SKB: Fracture size scaling exponent k_r, defined for k_r > 2, for k = 3 model is "self-similar"
+    # k_r is calibrated for the tectonic continuum: 2.55 to 2.79
+    # k_r is calibrated by connectivity analysis: 2.55 to 3.45
+    k_r: 2.5
+
+    # SKB: interval [r_0, r_infty], defined for 0 < r_0 < r_infty
+    diam_range: [0.038, 169]
+
+    # Area density of fractures i.e. area of fractures per unit volume for interval [r_0, r_infty]
+    # SKB: range of  p_32 [r_0, r_infty] is 0.59 to 2.60
+    # In general p32 defined as N/V (N is number of fractures, natural number, and V is volume, positive number)
+    # Which means that p32 has to be also positive
+    p32_r0_to_r_infty: 2
+
+    # Statistics of the DFN settings
+    fisher_orientation_parameters:
+      # SKB: range of trend (degrees): (2.5, 354.2)
+      # Trend is defined for (0, 360)
+      fisher_trend: 10
+      # SKB: range of plunge (degrees): (0.1, 85.4)
+      # Plunge is defined for (0, 90)
+      fisher_plunge: 85
+      # SKB: Fisher kappa:  (6.5, 42.9)
+      # Fisher kappa is defined for positive values, usage of limit value of zero is allowed, so kappa >= 0
+      fisher_kappa: 10
+    von_mises_parameters:
+      # Trend is defined for (0, 360), values outside this range are normalized accordingly
+      von_mises_trend: 0
+      # VonMises kappa is defined for positive values, usage of limit value of zero is allowed, so kappa >= 0
+      von_mises_kappa: 0
+  # All of these parameters have to be positive
+  gmsh_options_parameters:
+    fracture_mesh_step: 0.03
+    tolerance_initial_delaunay: 0.0001
+    tolerance: 0.0005
+    tolerance_boolean: 0.0001
+  # These settings are optional
+  optional_settings:
+    # If "yes" is used a window in GMSH software with a preview of the created DFN will be displayed
+    # Note: Displayed fracture network HAS NOT yet undergone healing process ie .msh is shown (not _healed.msh)
+    display_fracture_network: "yes"
+    # This is supposed to represent some sort of "logging", where everything that has been used or created is summarized
+    # If "yes" is selected a .txt file with mentioned summary will be created
+    create_complete_summary_txt_file: "yes"
+    # Directory where the summary is created, relative path
+    dir_of_where_summary_is_created: "mesh_generation_results/"
+    # If "yes" is selected, then a new name (defined underneath) will be used for the summary .txt file
+    # In the other case of "no", then the default name will be used: parameter_summary.txt
+    change_name_of_txt_file_summary: "no"
+    # New name of the .txt file containing the summary if "yes" was chosen before this
+    new_txt_file_summary_name: "test"
+
+# *************************************************************************************************************************
+# Settings for the script create_yaml.py that creates .yaml file
+homogenization_and_yaml_creation:
+  # input: config_file and .msh (healed) file as input arguments when calling the script
+  output:
+    # IMPORTANT: you can change the directory of the template but do NOT delete it as it is crucial
+    # Without a template the .yaml file for the homogenization cannot be created
+    path_to_yaml_template: "data_vtu/TEMPLATE_DO_NOT_DELETE/template.yaml"
+    dir_where_yaml_is_created: "data_vtu/output_yaml"
+    # Do you want to change the names of the computed YAML file?
+    # "yes" - then the yaml is created with the name taken from new_names_of_yaml
+    # "no" - default setting of the name is used - generated_yaml.yaml
+    change_names_of_computed_yaml: "no"
+    new_name_of_yaml: "name1.yaml"
+
+  homogenization_settings:
+    # The fracture cross-section is calculated by multiplying the domain size by a chosen multiplier
+    # A common multiplier is 0.01
+    # For example, with a 1x1 meter domain (1 m²), the fractures are scaled to centimeters (1/100 of the size)
+    # This multiplier is allowed only for values within  0 and 1
+    cross_section_multiplier: 0.01
+
+    # Some examples of real life rock Young moduli (given in GPa) found in literature:
+    # Andesite	20 - 60 GPa, Basalt	60 - 100 GPa, Granite	40 - 70 GPa
+    # IMPORTANT: the value below is expected to be in GPa
+    young_modul_rock_gpa: 50
+
+    # This parameter is a multiplier for the reduction in the Young's modulus of fractures compared to the surrounding rock
+    # A typical value is 100-1000x
+    # => Meaning the fractures have a Young modulus about 100 to 1000 times smaller than the surrounding rock
+    reduction_value_for_fractures: 500
+
+
+directories:
+  # if the directory does not exist, then it is created
+  # if the directory already exists, then all the contents within the directory are deleted beforehand
+  # absolute_path_to_dir_with_data should contain the scripts downloaded
+  # all other dirs are relative to the absolute path
+
+  dir_where_vtus_are_created: "data_vtu/vtu_files"
+  # This directory is also used for the healed mesh file
+  # In other words the healed mesh file directory and the mesh file directory are the exact same
+
+
+results_file_settings:
+  #the file is always a .txt file so no need for .txt
+  name_of_file_with_tensor: "example_tensor"
+  # if the output directory for the file with the results does not exist, then it is created
+  # if the output directory already exists, then all the contents within the dir are deleted beforehand
+  # this dir is relative to the absolute path
+  output_dir_of_file_with_tensor: "results_elastic_tensor"
+
+additional_settings:
+  delete_vtu_dir_after_simulation: "no"  # Do you want to delete the VTU directory after simulation?
+
+
+
+  # Do you want to change the names of the computed output directories?
+  # "yes" - then the output directories are created with the names taken from new_names_of_output_dirs
+  # "no" - default setting of names - output1, output2, output3
+  change_names_of_computed_output_dirs: "no"
+  new_names_of_output_dirs: ["name1","name2","name3"]  # New names for computed output dirs
+
+  # Do you want to change the names of the computed vtu files?
+  # "yes" - then the vtu files are created with the names taken from new_names_of_vtu_files
+  # "no" - default setting of vtu file names - 1_mechanics-00000.vtu, 2_mechanics-00000.vtu, 3_mechanics-00000.vtu
+  change_names_of_computed_vtu_files: "no"
+  new_names_of_vtu_files: [ "name1.vtu","name2.vtu","name3.vtu" ]  # New names for computed output dirs
+
+
