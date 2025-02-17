@@ -1,0 +1,21 @@
+==========================================================================================
+                    Effective elastic tensor in matrix form for 2D problems with DFN 
+==========================================================================================
+
+            -61.736254220527506           -32.99590410666969       -7.699957023200476
+C =         -69.30604787660182         -29.94026139959354       -1.3985443366683725
+            508.7441927287988          392.8188932376892       144.4644603066192
+
+------------------------------------------------------------------------------------------
+This result was computed using these files:
+C:\Plocha\Bachelor_thesis\Python_scripts\Analysis_displacement_sequences\Only_in_xy\output_sequence_xy\mechanics\mechanics-000000.vtu
+C:\Plocha\Bachelor_thesis\Python_scripts\Analysis_displacement_sequences\Only_in_xy\output_sequence_xy\mechanics\mechanics-000001.vtu
+C:\Plocha\Bachelor_thesis\Python_scripts\Analysis_displacement_sequences\Only_in_xy\output_sequence_xy\mechanics\mechanics-000002.vtu
+C:\Plocha\Bachelor_thesis\Python_scripts\Analysis_displacement_sequences\Only_in_xy\output_sequence_xy\mechanics\mechanics-000003.vtu
+C:\Plocha\Bachelor_thesis\Python_scripts\Analysis_displacement_sequences\Only_in_xy\output_sequence_xy\mechanics\mechanics-000004.vtu
+C:\Plocha\Bachelor_thesis\Python_scripts\Analysis_displacement_sequences\Only_in_xy\output_sequence_xy\mechanics\mechanics-000005.vtu
+C:\Plocha\Bachelor_thesis\Python_scripts\Analysis_displacement_sequences\Only_in_xy\output_sequence_xy\mechanics\mechanics-000006.vtu
+C:\Plocha\Bachelor_thesis\Python_scripts\Analysis_displacement_sequences\Only_in_xy\output_sequence_xy\mechanics\mechanics-000007.vtu
+C:\Plocha\Bachelor_thesis\Python_scripts\Analysis_displacement_sequences\Only_in_xy\output_sequence_xy\mechanics\mechanics-000008.vtu
+C:\Plocha\Bachelor_thesis\Python_scripts\Analysis_displacement_sequences\Only_in_xy\output_sequence_xy\mechanics\mechanics-000009.vtu
+C:\Plocha\Bachelor_thesis\Python_scripts\Analysis_displacement_sequences\Only_in_xy\output_sequence_xy\mechanics\mechanics-000010.vtu

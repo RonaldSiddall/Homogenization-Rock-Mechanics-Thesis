@@ -1,0 +1,21 @@
+==========================================================================================
+                    Effective elastic tensor in matrix form for 2D problems with DFN 
+==========================================================================================
+
+            28.927226031216314           23.671624880610455       9.205631898015172
+C =         588.8186727334108         481.7497421420695       187.34712194413868
+            16.14300683770811          13.196166420870659       5.131842497005207
+
+------------------------------------------------------------------------------------------
+This result was computed using these files:
+C:\Plocha\Bachelor_thesis\Python_scripts\Analysis_displacement_sequences\Only_in_y\output_sequence_y\mechanics\mechanics-000000.vtu
+C:\Plocha\Bachelor_thesis\Python_scripts\Analysis_displacement_sequences\Only_in_y\output_sequence_y\mechanics\mechanics-000001.vtu
+C:\Plocha\Bachelor_thesis\Python_scripts\Analysis_displacement_sequences\Only_in_y\output_sequence_y\mechanics\mechanics-000002.vtu
+C:\Plocha\Bachelor_thesis\Python_scripts\Analysis_displacement_sequences\Only_in_y\output_sequence_y\mechanics\mechanics-000003.vtu
+C:\Plocha\Bachelor_thesis\Python_scripts\Analysis_displacement_sequences\Only_in_y\output_sequence_y\mechanics\mechanics-000004.vtu
+C:\Plocha\Bachelor_thesis\Python_scripts\Analysis_displacement_sequences\Only_in_y\output_sequence_y\mechanics\mechanics-000005.vtu
+C:\Plocha\Bachelor_thesis\Python_scripts\Analysis_displacement_sequences\Only_in_y\output_sequence_y\mechanics\mechanics-000006.vtu
+C:\Plocha\Bachelor_thesis\Python_scripts\Analysis_displacement_sequences\Only_in_y\output_sequence_y\mechanics\mechanics-000007.vtu
+C:\Plocha\Bachelor_thesis\Python_scripts\Analysis_displacement_sequences\Only_in_y\output_sequence_y\mechanics\mechanics-000008.vtu
+C:\Plocha\Bachelor_thesis\Python_scripts\Analysis_displacement_sequences\Only_in_y\output_sequence_y\mechanics\mechanics-000009.vtu
+C:\Plocha\Bachelor_thesis\Python_scripts\Analysis_displacement_sequences\Only_in_y\output_sequence_y\mechanics\mechanics-000010.vtu
