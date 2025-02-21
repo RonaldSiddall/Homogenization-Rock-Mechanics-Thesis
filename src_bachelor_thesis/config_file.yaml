@@ -1,0 +1,178 @@
+# This is the absolute path to the python project
+absolute_path_to_project: "C:/Plocha/Bachelor_thesis/Python_scripts/"
+# IMPORTANT: all other directories from this point forward are relative to the absolute path above!
+# If the user wishes to use a path outside of the project then using ../ is possible
+
+#*********************************************************************************************************************
+# Settings for the script create_mesh.py that creates .msh (and also _healed.msh) file
+mesh_and_fracture_network_settings:
+  # input: path to config file, can be relative or absolute, program can handle both
+  output:
+    # Directory where the mesh file (also including the healed mesh file) will be created
+    dir_where_mesh_is_created: "../Analysis_and_results/Analysis_displacement_sequences/"
+    # Do you want to change the name of the generated mesh file?
+    # Set "yes" to use a new name, "no" will use the default names: created_mesh.msh, created_mesh_healed.msh
+    # If "yes" was chosen, then the name of the healed mesh file will also be changed accordingly
+    customize_mesh_name: "yes"
+    # The ".msh" extension will be automatically added, do not add it here:
+    new_mesh_file_name: "reference_mesh"
+
+  discreet_fracture_network_parameters:
+    #----------------------------
+    # Complete detailed description of each of these values and their physical interpretation is written in the theoretical
+    # part of the bachelor thesis, for more information look into chapter 2 "Theory"
+    #----------------------------
+    # These are the dimensions of the domain, that the fractures will be generated in
+    # [1, 1] is a unit square with its middle point in the origin of the XYZ coordinates
+    # [2, 1] would be a rectangle that also has its middle point in the origin
+    # All types of rectangles (squares) are possible, the dimensions must not be less or equal to zero
+    rectangle_dimensions: [1, 1]
+    # In SKB the sample range is the interval [r_min, r_max], it is defined for 0 < r_min < r_max
+    sample_range: [0.038, 169]
+    # In SKB k_r is the fracture size scaling exponent k_r
+    # k_r is defined for k_r > 2, for k_r = 3 the model is "self-similar"
+    # k_r calibrated for the tectonic continuum has values between: 2.55 to 2.79
+    # k_r is calibrated by connectivity analysis has values between: 2.55 to 3.45
+    k_r: 2.5
+    # In SKB the diam_range is the interval [r_0, r_infty], it is defined for 0 < r_0 < r_infty
+    diam_range: [0.038, 169]
+    # p32_r0_to_r_infty is the area density of fractures i.e. area of fractures per unit volume for interval [r_0, r_infty]
+    # In SKB p32_r0_to_r_infty is the range of  p_32 [r_0, r_infty], real values lie between 0.59 to 2.60
+    # In general p32 defined as N/V (N is number of fractures, V is volume), which means that p32 has to be also positive
+    p32_r0_to_r_infty: 2
+
+    # Statistics of the DFN settings
+    fisher_orientation_parameters:
+      # In SKB the range of trend (in degrees) lies within (2.5, 354.2)°
+      # Trend in general is defined for (0, 360)°
+      fisher_trend: 10
+      # In SKB the range of plunge (in degrees) lies within (0.1, 85.4)°
+      # Plunge in general is defined for (0, 90)°
+      fisher_plunge: 85
+      # In SKB the Fisher kappa is defined in interval (6.5, 42.9)
+      # Fisher kappa in general is defined for positive values, but the usage of a limit towards the value of zero is allowed
+      # so fisher_kappa >= 0
+      fisher_kappa: 10
+    von_mises_parameters:
+      # Von Mises Trend in general is defined for (0, 360)°
+      von_mises_trend: 0
+      # Von Mises kappa is defined for positive values, but the usage of a limit towards the value of zero is allowed
+      # so von_mises_kappa >= 0
+      von_mises_kappa: 0
+  # All of these parameters have to be positive
+  # They define the structure and setting of the created finite element mesh ie the elements (triangles)
+  gmsh_options_parameters:
+    fracture_mesh_step: 0.03
+    tolerance_initial_delaunay: 0.0001
+    tolerance: 0.0005
+    tolerance_boolean: 0.0001
+  # These settings are optional and do not effect the resulting .msh file
+  optional_settings:
+    # If "yes" is chosen a window in GMSH software with a preview of the created DFN will be displayed before the healing process
+    # Note: Displayed fracture network HAS NOT yet undergone healing process ie .msh is shown (not _healed.msh)
+    display_fracture_network: "no"
+    # This is supposed to represent some sort of "logging", where everything that has been used or created is summarized
+    # If "yes" is selected a .txt file with mentioned summary will be created
+    create_complete_summary_txt_file_mesh: "yes"
+    # Directory where the summary is created, relative path
+    dir_of_where_summary_is_created_mesh: "../Analysis_and_results/Analysis_displacement_sequences"
+    # If "yes" is selected, then a new name (defined underneath) will be used for the summarizing .txt file
+    # In any other case the default name will be used: parameter_summary.txt
+    change_name_of_txt_file_summary_mesh: "yes"
+    new_txt_file_summary_name_mesh: "summary_mesh"
+# *************************************************************************************************************************
+# End of the settings for the script create_mesh.py
+
+
+# *************************************************************************************************************************
+# Settings for the script create_yaml.py that creates the .yaml file that is then used for the simulation
+homogenization_and_yaml_creation:
+  # input: apart from the displacements mentioned below the config_file and .msh (should be healed) file
+  # are used as input arguments when calling the script
+  # Note: it is expected no more than 100% of displacement will be used ie displacement percentages listed below must be
+  # between -1 and 1, in other words the absolute value of the given displacement percentage is less or equal to one
+  input:
+    # Determines whether all boundary conditions should have the same displacement.
+    # If set to "yes", the same displacement value will be applied in all directions (x, y, shear)
+    # If set to "no", separate values for x, y, and shear displacement must be specified
+    boundary_conditions_have_equal_displacement: "yes"
+    # If `boundary_conditions_have_equal_displacement` is set to "yes",
+    # this value will be used for displacements in all directions (x, y, and shear)
+    displacement_percentage_all_boundary_conditions: 0.11
+    # Displacement percentage along the x-axis.
+    # A negative value represents compression, while a positive value represents expansion
+    displacement_percentage_x: -0.12
+    # Displacement percentage along the y-axis.
+    # A negative value represents compression, while a positive value represents expansion
+    displacement_percentage_y: 0.13
+    # Shear displacement percentage, representing deformation where one axis moves in proportion to another
+    # A positive value corresponds to one direction of shear strain, and a negative value corresponds to the opposite direction
+    displacement_percentage_shear: -0.14
+  output:
+    # IMPORTANT: Do not delete the template file!
+    # This template is essential for generating the .yaml configuration used in the homogenization process
+    # If necessary, you can change its directory, but ensure that the file remains accessible
+    path_to_yaml_template: "src_bachelor_thesis/Templates_dont_delete/template.yaml"
+    # Directory where the generated .yaml file will be saved, is relative
+    dir_where_yaml_is_created: "../Analysis_and_results/Analysis_displacement_sequences/all_cases/case_p_neg_0_11/"
+    # If set to "yes", the generated .yaml file will have a custom name instead of the default one
+    # default name of created yaml: generated_yaml.yaml
+    change_names_of_computed_yaml: "yes"
+    # The custom name for the generated .yaml file
+    # This will be used if change_names_of_computed_yaml is set to "yes"
+    new_name_of_yaml: "p_neg_0_11"
+
+  homogenization_settings:
+    # The fracture cross-section is calculated by multiplying the domain size by a chosen multiplier
+    # A common multiplier is 0.01
+    # For example, with a 1x1 meter domain (1 m²), the fractures are scaled to centimeters (1/100 of the size)
+    # This multiplier is allowed only for values within  0 and 1
+    cross_section_multiplier: 0.01
+    # Some examples of real life rock Young moduli (given in GPa) found in literature:
+    # Andesite	20 - 60 GPa, Basalt	60 - 100 GPa, Granite	40 - 70 GPa
+    # IMPORTANT: the value below is expected to be in GPa
+    young_modul_rock_gpa: 50
+    # This parameter is a multiplier for the reduction in the Young's modulus of fractures compared to the surrounding rock
+    # A typical value of reduction_value_for_fractures is between 100 and 1000
+    # => Meaning the fractures have a Young modulus about 100 to 1000 times smaller than the surrounding rock
+    reduction_value_for_fractures: 500
+
+  optional_settings:
+    # This is supposed to represent some sort of "logging", where everything that has been used or created is summarized
+    # If "yes" is selected a .txt file with mentioned summary will be created
+    create_complete_summary_txt_file_yaml: "yes"
+    # Directory where the summary is created, relative path
+    dir_of_where_summary_is_created_yaml: "../Analysis_and_results/Analysis_displacement_sequences/all_cases/case_p_neg_0_11"
+    # If "yes" is selected, then a new name (defined underneath) will be used for the summary .txt file
+    # In the other case of "no", then the default name will be used: parameter_summary.txt
+    change_name_of_txt_file_summary_yaml: "yes"
+    # New name of the .txt file containing the summary if "yes" was chosen before this
+    new_txt_file_summary_name_yaml: "summary_p_neg_0_11"
+# *************************************************************************************************************************
+# End of the settings for the script create_yaml.py
+
+
+# *************************************************************************************************************************
+# Settings for the script create_tensor.py that creates .txt file containing the resulting tensor
+simulation_and_final_tensor_computation_settings:
+  # General information:
+  # SIDE NOTE: Path to the flow-noterm.bat is expected to be unchanged, but if the user wishes to do so,
+  # It is possible within the get_path_to_flow123d_script method in ConfigManager.py class
+  # This .bat file is used in the simulation in the simulator Flow123d, so it is crucial
+  # Input: path to the yaml file that we want to simulate as the argument
+  output:
+    # Relative path to the directory where the results of the simulation will be saved
+    # This directory has to include the name of the file containing the results of the simulation
+    output_dir_of_simulation_results: "Analysis_and_results/output"
+    # Relative path to the directory where the resulting effective elastic tensor will be saved
+    output_dir_of_file_with_tensor: "ahojda/"
+    # The name of the .txt file containing the resulting tensor
+    name_of_file_with_tensor: "aa"
+
+  optional_settings:
+    # Would you like to display the standart output of the Flow123d software?
+    # If "yes" is chosen, the process of simulating will be described with detail by the simulator
+    # If anything else, just a simple message informing that the simulation is undergoing will be displayed
+    display_std_output: "yes"
+# *************************************************************************************************************************
+# End of the settings for the script create_tensor.py
