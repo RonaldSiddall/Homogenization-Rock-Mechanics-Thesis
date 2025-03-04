@@ -1,0 +1,61 @@
+Ronald Ch. Siddall@LAPTOP-MM6A3LRF MINGW64 /C/Plocha/Bachelor_thesis/Python_scripts/src_bachelor_thesis (main)
+$ python create_mesh.py config_file.yaml
+GMSH initialized
+Warning : Intersection - BOPAlgo_AlertTooSmallEdge BOPAlgo_AlertBadPositioning BOPAlgo_AlertBadPositioning BOPAlgo_AlertTooSmallEdge BOPAlgo_AlertTooSmallEdge BOPAlgo_AlertBadPositioning BOPAlgo_AlertTooSmallEdge BOPAlgo_AlertAcquiredSelfIntersection BOPAlgo_AlertTooSmallEdge BOPAlgo_AlertTooSmallEdge BOPAlgo_AlertBadPositioning BOPAlgo_AlertBadPositioning BOPAlgo_AlertTooSmallEdge BOPAlgo_AlertTooSmallEdge BOPAlgo_AlertBadPositioning BOPAlgo_AlertTooSmallEdge BOPAlgo_AlertAcquiredSelfIntersection BOPAlgo_AlertTooSmallEdge
+Fragmenting fractures...
+Finishing geometry...rsection - Splitting faces
+Warning : Fragments - BOPAlgo_AlertSelfInterferingShape BOPAlgo_AlertTooSmallEdge BOPAlgo_AlertTooSmallEdge BOPAlgo_AlertTooSmallEdge BOPAlgo_AlertTooSmallEdge BOPAlgo_AlertTooSmallEdge BOPAlgo_AlertTooSmallEdge BOPAlgo_AlertTooSmallEdge BOPAlgo_AlertSelfInterferingShape BOPAlgo_AlertTooSmallEdge BOPAlgo_AlertTooSmallEdge BOPAlgo_AlertTooSmallEdge BOPAlgo_AlertTooSmallEdge BOPAlgo_AlertTooSmallEdge BOPAlgo_AlertTooSmallEdge BOPAlgo_AlertTooSmallEdge
+Info    : Snapping geometry point 2238 to curve (distance = 0.000663501)
+Info    : Snapping geometry point 2238 to curve (distance = 0.00096495)
+Info    : Snapping geometry point 2238 to curve (distance = 0.000507008)
+Info    : Snapping geometry point 2238 to curve (distance = 0.000507008)
+Warning : Unknown entity of dimension 2 and tag 118 in physical group 5
+Warning : Unknown entity of dimension 1 and tag 314 in physical group 6
+Warning : Unknown entity of dimension 1 and tag 317 in physical group 6
+Warning : Unknown entity of dimension 1 and tag 350 in physical group 6
+Warning : Unknown entity of dimension 1 and tag 351 in physical group 6
+Warning : Unknown entity of dimension 1 and tag 370 in physical group 6
+Warning : Unknown entity of dimension 1 and tag 409 in physical group 6
+Warning : Unknown entity of dimension 1 and tag 410 in physical group 6
+Warning : Unknown entity of dimension 1 and tag 411 in physical group 6
+Warning : Unknown entity of dimension 1 and tag 499 in physical group 6
+Warning : Unknown entity of dimension 1 and tag 512 in physical group 6
+Warning : Unknown entity of dimension 1 and tag 514 in physical group 6
+Warning : Unknown entity of dimension 1 and tag 533 in physical group 6
+Warning : Unknown entity of dimension 1 and tag 544 in physical group 6
+Warning : Unknown entity of dimension 1 and tag 570 in physical group 6
+Warning : Unknown entity of dimension 1 and tag 645 in physical group 6
+Warning : Unknown entity of dimension 1 and tag 747 in physical group 6
+Warning : Unknown entity of dimension 1 and tag 755 in physical group 6
+Warning : Unknown entity of dimension 1 and tag 757 in physical group 6
+Warning : Unknown entity of dimension 1 and tag 758 in physical group 6
+Warning : Unknown entity of dimension 1 and tag 759 in physical group 6
+Warning : Unknown entity of dimension 1 and tag 766 in physical group 6
+Warning : Unknown entity of dimension 1 and tag 774 in physical group 6
+Warning : Unknown entity of dimension 1 and tag 796 in physical group 6
+Warning : Unknown entity of dimension 1 and tag 805 in physical group 6
+Warning : Unknown entity of dimension 1 and tag 807 in physical group 6
+Warning : Unknown entity of dimension 1 and tag 852 in physical group 6
+Warning : Unknown entity of dimension 1 and tag 868 in physical group 6
+Warning : Unknown entity of dimension 1 and tag 870 in physical group 6
+Warning : Unknown entity of dimension 1 and tag 905 in physical group 6
+Warning : Unknown entity of dimension 1 and tag 921 in physical group 6
+Warning : Unknown entity of dimension 1 and tag 967 in physical group 6
+Warning : Unknown entity of dimension 1 and tag 969 in physical group 6
+Warning : Unknown entity of dimension 1 and tag 970 in physical group 6
+Warning : Unknown entity of dimension 1 and tag 983 in physical group 6
+Warning : Unknown entity of dimension 1 and tag 996 in physical group 6
+Warning : Unknown entity of dimension 1 and tag 1042 in physical group 6
+Warning : Unknown entity of dimension 1 and tag 1161 in physical group 6
+Warning : Unknown entity of dimension 1 and tag 1163 in physical group 6
+Warning : Unknown entity of dimension 1 and tag 1164 in physical group 6
+Warning : Unknown entity of dimension 1 and tag 1178 in physical group 6
+Warning : Unknown entity of dimension 1 and tag 1186 in physical group 6
+Error   : Unknown model curve with tag 314
+-------------------------------------------------------------------------------
+
+An error occurred during execution. The error message is written below:
+
+Unknown model curve with tag 314
+
+-------------------------------------------------------------------------------
