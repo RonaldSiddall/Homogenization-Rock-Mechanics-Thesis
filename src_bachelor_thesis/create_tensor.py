@@ -1,19 +1,19 @@
 import sys
-from src_bachelor_thesis.Logic_classes.GenerateVtuFiles import GenerateVtuFiles
-from src_bachelor_thesis.Logic_classes.GenerateTensor import GenerateTensor
-from src_bachelor_thesis.Utility_methods.parameter_summaries import parameters_short_summary_print_out_flow
 import time
 import os
+from Logic_classes.GenerateVtuFiles import GenerateVtuFiles
+from Logic_classes.GenerateTensor import GenerateTensor
+from Utility_methods.parameter_summaries import parameters_short_summary_print_out_flow
 
 # This function generates a .txt file using the provided configuration file (config_file.yaml) and
-# input yaml file that describes the homogenization problem
+# input .yaml file that describes the homogenization problem
 def create_file_with_tensor(config_file, yaml_file):
     try:
         start_time = time.time()
         vtu_dirs = GenerateVtuFiles(config_file, yaml_file).extract_vtu_files()
         GenerateTensor(config_file, yaml_file, vtu_dirs).get_tensor_in_txt_formatted()
         end_time = time.time()
-        # this extracts the name of the file you are reading now
+        # This extracts the name of the file you are reading now
         name_of_script_flow = os.path.basename(__file__)
         parameters_short_summary_print_out_flow(config_file, yaml_file, start_time, end_time, name_of_script_flow)
     except Exception as error_mess:
