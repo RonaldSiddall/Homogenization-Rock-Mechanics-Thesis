@@ -6,7 +6,7 @@ from Logic_classes.ConfigManager import ConfigManager
 from Utility_methods.path_manager import get_all_needed_paths_flow
 
 class GenerateVtuFiles:
-    # Initiation of the used parameters from the config.yaml file or needed paths
+    # Initiation of the used parameters from the config.yaml file or necessary paths
     def __init__(self, config_file, yaml_file):
         self.config = ConfigManager(config_file)
         needed_paths_flow = get_all_needed_paths_flow(config_file, yaml_file)

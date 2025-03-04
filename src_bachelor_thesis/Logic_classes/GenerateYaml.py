@@ -45,7 +45,7 @@ class GenerateYaml:
         reduced_young_modul_fractures = young_modul_rock_pa / self.reduction_value_for_fractures
 
         # Old words represent the keywords that are replaced in the yaml template with the values given by config data
-        old_words = ["displacement_percentage_x", "displacement_percentage_y", "displacement_percentage_z",
+        old_words = ["displacement_percentage_x", "displacement_percentage_y", "displacement_percentage_shear",
                      "output_mesh_path", "fractures_cross_section", "rock_young_modulus", "fractures_young_modulus"]
 
         # New words replace the old words with the needed value, depending on if displacements are equal or not

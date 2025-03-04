@@ -8,6 +8,11 @@ class GenerateTensor:
         self.config = ConfigManager(config_file)
         self.needed_paths_flow = get_all_needed_paths_flow(config_file, yaml_file)
         self.output_dir_of_file_with_tensor = self.needed_paths_flow[3] + ".txt"
+        self.boundary_conditions_have_equal_displacement = self.config.get_boundary_conditions_have_equal_displacement()
+        self.displacement_percentage_all_boundary_conditions = self.config.get_displacement_percentage_all_boundary_conditions()
+        self.displacement_percentage_x = self.config.get_displacement_percentage_x()
+        self.displacement_percentage_y = self.config.get_displacement_percentage_y()
+        self.displacement_percentage_shear = self.config.get_displacement_percentage_shear()
         self.vtu_dirs = vtu_dirs
         self.meshes = []
         for vtu_file in self.vtu_dirs:
@@ -55,12 +60,34 @@ class GenerateTensor:
             # third case: third column
             constants_voigt = [all_constants[index] for index in needed_indexes]
             constants_voigt_list.append(constants_voigt)
-        return constants_voigt_list
+
+        # The values of the constants need to be divided by the displacement
+        # The reason is given in the theory, where the effective elastic coefficients are determined mathematically
+        coefficients = np.array(constants_voigt_list)
+        if self.boundary_conditions_have_equal_displacement == "yes":
+            coefficients /= self.displacement_percentage_all_boundary_conditions
+        else:
+            coefficients[0][0] /= self.displacement_percentage_x
+            coefficients[0][1] /= self.displacement_percentage_x
+            coefficients[0][2] /= self.displacement_percentage_x
+            coefficients[1][0] /= self.displacement_percentage_y
+            coefficients[1][1] /= self.displacement_percentage_y
+            coefficients[1][2] /= self.displacement_percentage_y
+            coefficients[2][0] /= self.displacement_percentage_shear
+            coefficients[2][1] /= self.displacement_percentage_shear
+            coefficients[2][2] /= self.displacement_percentage_shear
+
+        # the {coefficients[2][0]}, {coefficients[2][1]}, {coefficients[2][2]} need to be divided by two
+        # the reason is written in the theory
+        coefficients[2][0] = coefficients[2][0] / 2
+        coefficients[2][1] = coefficients[2][1] / 2
+        coefficients[2][2] = coefficients[2][2] / 2
+        coefficients.tolist()
+
+        return coefficients
 
     def get_tensor_in_txt_formatted(self):
         coefficients = self.compute_effect_elast_constants_voigt()
-        # the {coefficients[2][0]}, {coefficients[2][1]}, {coefficients[2][2]} need to be divided by two
-        # the reason is written in the theory
         with open(self.output_dir_of_file_with_tensor, "w") as txt_file:
             txt_file.write(
                 "============================================================================================\n")
@@ -68,11 +95,11 @@ class GenerateTensor:
             txt_file.write(
                 "============================================================================================\n\n")
             txt_file.write(
-                f"            {coefficients[0][0]}           {coefficients[1][0]}      {coefficients[2][0] / 2}\n")
+                f"            {coefficients[0][0]:<25}           {coefficients[1][0]:<25}      {coefficients[2][0]}\n")
             txt_file.write(
-                f"C =         {coefficients[0][1]}         {coefficients[1][1]}       {coefficients[2][1] / 2}\n")
+                f"C =         {coefficients[0][1]:<25}         {coefficients[1][1]:<25}       {coefficients[2][1]}\n")
             txt_file.write(
-                f"            {coefficients[0][2]}          {coefficients[1][2]}      {coefficients[2][2] / 2}\n\n\n")
+                f"            {coefficients[0][2]:<25}          {coefficients[1][2]:<25}      {coefficients[2][2]}\n\n\n")
             txt_file.write(
                 "--------------------------------------------------------------------------------------------\n")
             txt_file.write("This result was computed using these files:\n")
