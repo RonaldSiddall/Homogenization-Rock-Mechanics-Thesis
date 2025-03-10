@@ -39,8 +39,8 @@ class GenerateYaml:
         # Computes the new cross-section for the fractures
         new_cross_section_of_fractures = self.cross_section_multiplier * rectangle_first_dimension * rectangle_second_dimension
 
-        # We need the Young modulus of rock to be in Pascals instead of giga Pascals
-        young_modul_rock_pa = 1000 * self.young_modul_rock_gpa
+        # We need the Young modulus of rock to be in Pascals instead of giga Pascals (1 GPa = 1e9 Pa)
+        young_modul_rock_pa = 1000000000 * self.young_modul_rock_gpa
 
         reduced_young_modul_fractures = young_modul_rock_pa / self.reduction_value_for_fractures
 
@@ -48,7 +48,7 @@ class GenerateYaml:
         old_words = ["displacement_percentage_x", "displacement_percentage_y", "displacement_percentage_shear",
                      "output_mesh_path", "fractures_cross_section", "rock_young_modulus", "fractures_young_modulus"]
 
-        # New words replace the old words with the needed value, depending on if displacements are equal or not
+        # New words replace the old words with the necessary value, depending on if displacements are equal or not
         if self.boundary_conditions_have_equal_displacement == "yes":
             new_words = [self.displacement_percentage_all_boundary_conditions,
                          self.displacement_percentage_all_boundary_conditions,
