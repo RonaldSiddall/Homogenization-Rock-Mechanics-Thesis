@@ -9,13 +9,13 @@ mesh_and_fracture_network_settings:
   # input: path to the config file, can be relative or absolute, program can handle both
   output:
     # Directory where the mesh file (also including the healed mesh file) will be created
-    dir_where_mesh_is_created: "../Results_and_analysis/Dependence_tensor_on_fracture_young_modul/all_cases/case_young_modul_1000/mesh/"
+    dir_where_mesh_is_created: "../Results_and_analysis/Dependence_tensor_on_cross_section/data_analysis/"
     # Do you want to change the name of the generated mesh file?
     # Set "yes" to use a new name, "no" will use the default names: created_mesh.msh, created_mesh_healed.msh
     # If "yes" was chosen, then the name of the healed mesh file will also be changed accordingly
     customize_mesh_name: "yes"
     # The ".msh" extension will be automatically added, do not add it here:
-    new_mesh_file_name: "mesh_young_modul_1000"
+    new_mesh_file_name: "base_mesh_for_all_cases"
 
   discreet_fracture_network_parameters:
     #----------------------------
@@ -75,11 +75,11 @@ mesh_and_fracture_network_settings:
     # If "yes" is selected a .txt file with the mentioned summary will be created
     create_complete_summary_txt_file_mesh: "yes"
     # Directory where the summary is created, relative path
-    dir_of_where_summary_is_created_mesh: "../Results_and_analysis/Dependence_tensor_on_fracture_young_modul/all_cases/case_young_modul_1000/mesh"
+    dir_of_where_summary_is_created_mesh: "../Results_and_analysis/Dependence_tensor_on_cross_section/data_analysis"
     # If "yes" is selected, then a new name (defined underneath) will be used for the summarizing .txt file
     # In any other case the default name will be used: parameter_summary.txt
     change_name_of_txt_file_summary_mesh: "yes"
-    new_txt_file_summary_name_mesh: "summary_mesh_young_modul_1000"
+    new_txt_file_summary_name_mesh: "summary_base_mesh_for_all_cases"
 # *************************************************************************************************************************
 # End of the settings for the script create_mesh.py
 
@@ -114,13 +114,13 @@ homogenization_and_yaml_creation:
     # If necessary, you can change its directory, but ensure that the file remains accessible
     path_to_yaml_template: "src_bachelor_thesis/Templates_dont_delete/template.yaml"
     # Directory where the generated .yaml file will be saved, is relative
-    dir_where_yaml_is_created: "../Results_and_analysis/Dependence_tensor_on_fracture_young_modul/all_cases/case_young_modul_1000/yaml/"
+    dir_where_yaml_is_created: "../Results_and_analysis/Dependence_tensor_on_cross_section/tension_0_07/all_cases/case_cross_section_0_10/yaml/"
     # If set to "yes", the generated .yaml file will have a custom name instead of the default one
     # default name of created .yaml: generated_yaml.yaml
     change_names_of_computed_yaml: "yes"
     # The custom name for the generated .yaml file
     # This will be used if change_names_of_computed_yaml is set to "yes"
-    new_name_of_yaml: "yaml_young_modul_1000"
+    new_name_of_yaml: "yaml_cross_section_0_10"
 
   homogenization_settings:
     # The fracture cross-section is calculated by multiplying the domain size by a chosen multiplier
@@ -135,19 +135,19 @@ homogenization_and_yaml_creation:
     # This parameter is a multiplier for the reduction in the Young's modulus of fractures compared to the surrounding rock
     # A typical value of reduction_value_for_fractures is between 100 and 1000
     # => Meaning the fractures have a Young modulus about 100 to 1000 times smaller than the surrounding rock
-    reduction_value_for_fractures: 1000
+    reduction_value_for_fractures: 500
 
   optional_settings:
     # This is supposed to represent some sort of "logging", where everything that has been used or created is summarized
     # If "yes" is selected a .txt file with the mentioned summary will be created
     create_complete_summary_txt_file_yaml: "yes"
     # Directory where the summary is created, relative path
-    dir_of_where_summary_is_created_yaml: "../Results_and_analysis/Dependence_tensor_on_fracture_young_modul/all_cases/case_young_modul_1000/yaml/"
+    dir_of_where_summary_is_created_yaml: "../Results_and_analysis/Dependence_tensor_on_cross_section/tension_0_07/all_cases/case_cross_section_0_10/yaml/"
     # If "yes" is selected, then a new name (defined underneath) will be used for the summary .txt file
     # In the other case of "no", then the default name will be used: parameter_summary.txt
     change_name_of_txt_file_summary_yaml: "yes"
     # New name of the .txt file containing the summary if "yes" was chosen before this
-    new_txt_file_summary_name_yaml: "summary_yaml_young_modul_1000"
+    new_txt_file_summary_name_yaml: "summary_yaml_cross_section_0_10"
 # *************************************************************************************************************************
 # End of the settings for the script create_yaml.py
 
@@ -163,11 +163,11 @@ simulation_and_final_tensor_computation_settings:
   output:
     # The relative path to the directory where the results of the simulation will be saved
     # This directory has to include the name of the file containing the results of the simulation
-    output_dir_of_simulation_results: "../Results_and_analysis/Dependence_tensor_on_fracture_young_modul/all_cases/case_young_modul_1000/tensor/output"
+    output_dir_of_simulation_results: "../Results_and_analysis/Dependence_tensor_on_cross_section/tension_0_07/all_cases/case_cross_section_0_10/tensor/output"
     # Relative path to the directory where the resulting effective elastic tensor will be saved
-    output_dir_of_file_with_tensor: "../Results_and_analysis/Dependence_tensor_on_fracture_young_modul/all_cases/case_young_modul_1000/tensor/"
+    output_dir_of_file_with_tensor: "../Results_and_analysis/Dependence_tensor_on_cross_section/tension_0_07/all_cases/case_cross_section_0_10/tensor/"
     # The name of the .txt file containing the resulting tensor, .txt suffix is added automatically
-    name_of_file_with_tensor: "result_tensor_young_modul_1000"
+    name_of_file_with_tensor: "result_tensor_cross_section_0_10"
 
   optional_settings:
     # Would you like to display the standard output of the Flow123d software?
