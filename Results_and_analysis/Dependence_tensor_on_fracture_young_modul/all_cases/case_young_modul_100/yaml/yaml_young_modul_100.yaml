@@ -5,7 +5,7 @@ flow123d_version: 3.1.0
 problem: !Coupling_Sequential
   description: 2D elastic model with a single fracture with different BC.
   mesh:
-    mesh_file: /C/Plocha/Bachelor_thesis/Results_and_analysis/Dependence_tensor_on_fracture_young_modul/all_cases/case_young_modul_100/mesh/mesh_young_modul_100_healed.msh
+    mesh_file: /C/Plocha/Bachelor_thesis/Results_and_analysis/Dependence_tensor_on_fracture_young_modul/all_cases/base_mesh_for_all_cases_healed.msh
   flow_equation: !Coupling_Iterative
     input_fields:
     time:
@@ -39,11 +39,11 @@ problem: !Coupling_Sequential
         contact: true
         input_fields:
           - region: rock
-            young_modulus: 50000
+            young_modulus: 50000000000
             poisson_ratio: 0
 
           - region: fractures
-            young_modulus: 500.0
+            young_modulus: 500000000.0
             poisson_ratio: 0
             cross_section_min: 0
           

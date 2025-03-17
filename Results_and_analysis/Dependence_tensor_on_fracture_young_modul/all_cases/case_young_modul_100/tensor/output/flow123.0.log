@@ -1,23 +1,25 @@
-- -             [ Msg , null, "00:00:00.036", "/src/main.cc", 119, "display_version" ]
+- -             [ Msg , null, "00:00:00.095", "/src/main.cc", 119, "display_version" ]
   - This is Flow123d, version 3.9.0 commit: df80dc6
-- -             [ Msg , null, "00:00:00.036", "/src/main.cc", 121, "display_version" ]
+- -             [ Msg , null, "00:00:00.095", "/src/main.cc", 121, "display_version" ]
   - |
     Branch: 3.9.1
     Build: Aug 22 2022, 12:57:04 flags: -O3 -DNDEBUG -std=c++14 -pedantic -Wall -Wextra -Werror     -Wno-catch-value -Wno-deprecated-copy -Wno-misleading-indentation -Wno-implicit-fallthrough     -Wno-vla -Wno-unused-local-typedefs -Wno-deprecated-declarations
     Fetch URL:  https://github.com/flow123d/flow123d
-- -             [ Msg , null, "00:00:00.095", "/src/io/msh_gmshreader.cc", 58, "read_nodes" ]
+- -             [ Msg , null, "00:00:00.160", "/src/io/msh_gmshreader.cc", 58, "read_nodes" ]
   - - Reading nodes...
-- -             [ Msg , null, "00:00:00.118", "/src/io/msh_gmshreader.cc", 85, "read_nodes" ]
-  - ... 6241 nodes read. 
-- -             [ Msg , null, "00:00:00.118", "/src/io/msh_gmshreader.cc", 91, "read_elements" ]
+- -             [ Msg , null, "00:00:00.182", "/src/io/msh_gmshreader.cc", 85, "read_nodes" ]
+  - ... 6277 nodes read. 
+- -             [ Msg , null, "00:00:00.183", "/src/io/msh_gmshreader.cc", 91, "read_elements" ]
   - - Reading elements...
-- -             [ Msg , null, "00:00:00.157", "/src/io/msh_gmshreader.cc", 159, "read_elements" ]
-  - ... 14642 bulk elements, 226 boundary elements. 
-- -             [ Msg , null, "00:00:00.173", "/src/mesh/mesh.cc", 808, "make_neighbours_and_edges" ]
-  - Created 23028 edges and 4651 neighbours.
-- -             [ Msg , null, "00:00:00.189", "/src/mesh/bc_mesh.cc", 203, "make_neighbours_and_edges" ]
-  - Created 227 edges and 128 neighbours on boundary mesh.
-- -             [ Msg , null, "00:00:00.190", "/src/mesh/mesh.cc", 1048, "check_and_finish" ]
+- -             [ Msg , null, "00:00:00.225", "/src/io/msh_gmshreader.cc", 159, "read_elements" ]
+  - ... 15368 bulk elements, 245 boundary elements. 
+- -             [ Wrn , null, "00:00:00.239", "/src/mesh/mesh.cc", 655, "make_neighbours_and_edges" ]
+  - Lonely boundary element, id: 37, region: 10, dimension 0.
+- -             [ Msg , null, "00:00:00.244", "/src/mesh/mesh.cc", 808, "make_neighbours_and_edges" ]
+  - Created 24215 edges and 5974 neighbours.
+- -             [ Msg , null, "00:00:00.265", "/src/mesh/bc_mesh.cc", 203, "make_neighbours_and_edges" ]
+  - Created 248 edges and 154 neighbours on boundary mesh.
+- -             [ Msg , null, "00:00:00.266", "/src/mesh/mesh.cc", 1048, "check_and_finish" ]
   - |
     ----------- Table of all regions: -----------
      - Boundary elementary regions -
@@ -44,21 +46,21 @@
     BULK              ["fractures", "rock"]
     ---------------------------------------------
     
-- -             [ Log , null, "00:00:00.244", "/src/io/output_vtk.cc", 107, "init_from_input" ]
+- -             [ Log , null, "00:00:00.326", "/src/io/output_vtk.cc", 107, "init_from_input" ]
   - Writing flow output file: /C/Plocha/Bachelor_thesis/Python_scripts/../Results_and_analysis/Dependence_tensor_on_fracture_young_modul/all_cases/case_young_modul_100/tensor/output/mechanics.pvd ... 
-- -             [ Log , null, "00:00:00.245", "/src/io/output_vtk.cc", 584, "write_head" ]
+- -             [ Log , null, "00:00:00.328", "/src/io/output_vtk.cc", 584, "write_head" ]
   - write_head: Writing output file (head) /C/Plocha/Bachelor_thesis/Python_scripts/../Results_and_analysis/Dependence_tensor_on_fracture_young_modul/all_cases/case_young_modul_100/tensor/output/mechanics.pvd ... 
-- -             [ Log , null, "00:00:00.245", "/src/io/output_vtk.cc", 590, "write_head" ]
+- -             [ Log , null, "00:00:00.328", "/src/io/output_vtk.cc", 590, "write_head" ]
   - O.K.
-- -             [ Wrn , null, "00:00:00.282", "/src/io/output_time.cc", 161, "fix_main_file_extension" ]
+- -             [ Wrn , null, "00:00:00.373", "/src/io/output_time.cc", 161, "fix_main_file_extension" ]
   - Renaming output file: /C/Plocha/Bachelor_thesis/Python_scripts/../Results_and_analysis/Dependence_tensor_on_fracture_young_modul/all_cases/case_young_modul_100/tensor/output/flow_fields to /C/Plocha/Bachelor_thesis/Python_scripts/../Results_and_analysis/Dependence_tensor_on_fracture_young_modul/all_cases/case_young_modul_100/tensor/output/flow_fields.pvd
-- -             [ Log , null, "00:00:00.285", "/src/io/output_vtk.cc", 107, "init_from_input" ]
+- -             [ Log , null, "00:00:00.375", "/src/io/output_vtk.cc", 107, "init_from_input" ]
   - Writing flow output file: /C/Plocha/Bachelor_thesis/Python_scripts/../Results_and_analysis/Dependence_tensor_on_fracture_young_modul/all_cases/case_young_modul_100/tensor/output/flow_fields.pvd ... 
-- -             [ Log , null, "00:00:00.286", "/src/io/output_vtk.cc", 584, "write_head" ]
+- -             [ Log , null, "00:00:00.376", "/src/io/output_vtk.cc", 584, "write_head" ]
   - write_head: Writing output file (head) /C/Plocha/Bachelor_thesis/Python_scripts/../Results_and_analysis/Dependence_tensor_on_fracture_young_modul/all_cases/case_young_modul_100/tensor/output/flow_fields.pvd ... 
-- -             [ Log , null, "00:00:00.286", "/src/io/output_vtk.cc", 590, "write_head" ]
+- -             [ Log , null, "00:00:00.377", "/src/io/output_vtk.cc", 590, "write_head" ]
   - O.K.
-- -             [ Wrn , null, "00:00:00.349", "/src/coupling/hm_iterative.cc", 245, "HM_Iterative" ]
+- -             [ Wrn , null, "00:00:00.452", "/src/coupling/hm_iterative.cc", 245, "HM_Iterative" ]
   - |
     
     Used default values of Fields for equation flow:
@@ -78,7 +80,7 @@
      bc_switch_piezo_head           0.0                 .side_y0_fractures .side_y1_fractures .side_x0_fractures .side_x1_fractures .side_y0 .side_y1 .side_x0 .side_x1 .IMPLICIT_BOUNDARY
     ----------------------------------------------------------------------------------------------------
     
-- -             [ Wrn , null, "00:00:00.369", "/src/coupling/hm_iterative.cc", 287, "zero_time_step" ]
+- -             [ Wrn , null, "00:00:00.473", "/src/coupling/hm_iterative.cc", 287, "zero_time_step" ]
   - |
     
     Used default values of Fields for equation coupling_iterative:
@@ -89,21 +91,21 @@
      gravity                        9.81                fractures rock
     ----------------------------------------------------------------------------------------------------
     
-- -             [ Msg , null, "00:00:00.429", "/src/flow/darcy_flow_lmh.cc", 490, "zero_time_step" ]
+- -             [ Msg , null, "00:00:00.546", "/src/flow/darcy_flow_lmh.cc", 490, "zero_time_step" ]
   - Flow zero time step - steady case
-- -             [ Msg , null, "00:00:00.543", "/src/flow/darcy_flow_lmh.cc", 598, "solve_nonlinear" ]
+- -             [ Msg , null, "00:00:00.667", "/src/flow/darcy_flow_lmh.cc", 598, "solve_nonlinear" ]
   - [nonlinear solver] norm of initial residual: 0
-- -             [ Log , null, "00:00:00.544", "/src/la/linsys_PETSC.cc", 371, "solve" ]
+- -             [ Log , null, "00:00:00.667", "/src/la/linsys_PETSC.cc", 371, "solve" ]
   - inserting petsc options: -ksp_type cg -pc_type icc  -pc_factor_levels 3 -ksp_diagonal_scale -ksp_diagonal_scale_fix -pc_factor_fill 6.0
-- -             [ Log , null, "00:00:00.567", "/src/la/linsys_PETSC.cc", 409, "solve" ]
+- -             [ Log , null, "00:00:00.696", "/src/la/linsys_PETSC.cc", 409, "solve" ]
   - convergence reason 3, number of iterations is 0
-- -             [ Msg , null, "00:00:00.568", "/src/flow/darcy_flow_lmh.cc", 642, "solve_nonlinear" ]
+- -             [ Msg , null, "00:00:00.697", "/src/flow/darcy_flow_lmh.cc", 642, "solve_nonlinear" ]
   - [schur solver] lin. it: 0, reason: 3, residual: 0
-- -             [ Msg , null, "00:00:00.568", "/src/flow/darcy_flow_lmh.cc", 651, "solve_nonlinear" ]
+- -             [ Msg , null, "00:00:00.698", "/src/flow/darcy_flow_lmh.cc", 651, "solve_nonlinear" ]
   - [nonlinear solver] lin. it: 0, reason: 3, residual: 0
-- -             [ Log , null, "00:00:00.584", "/src/io/output_time.cc", 229, "write_time_frame" ]
+- -             [ Log , null, "00:00:00.715", "/src/io/output_time.cc", 229, "write_time_frame" ]
   - Skipping output stream: /C/Plocha/Bachelor_thesis/Python_scripts/../Results_and_analysis/Dependence_tensor_on_fracture_young_modul/all_cases/case_young_modul_100/tensor/output/flow_fields.pvd in time: -1
-- -             [ Wrn , null, "00:00:00.600", "/src/mechanics/elasticity.cc", 499, "zero_time_step" ]
+- -             [ Wrn , null, "00:00:00.731", "/src/mechanics/elasticity.cc", 499, "zero_time_step" ]
   - |
     
     Used default values of Fields for equation mechanics:
@@ -119,83 +121,83 @@
      cross_section_min              0.0                 rock
     ----------------------------------------------------------------------------------------------------
     
-- -             [ Log , null, "00:00:02.249", "/src/la/linsys_PERMON.cc", 116, "solve" ]
+- -             [ Log , null, "00:00:02.624", "/src/la/linsys_PERMON.cc", 116, "solve" ]
   - inserting petsc options: -ksp_type cg -pc_type hypre -pc_hypre_type boomeramg
-- -             [ Log , null, "00:00:03.108", "/src/la/linsys_PERMON.cc", 159, "solve" ]
+- -             [ Log , null, "00:00:03.590", "/src/la/linsys_PERMON.cc", 159, "solve" ]
   - convergence reason 3, number of iterations is 0
-- -             [ Msg , null, "00:00:03.109", "/src/mechanics/elasticity.cc", 518, "zero_time_step" ]
-  - [mech solver] lin. it: 0, reason: 3, residual: 1.89244
-- -             [ Log , null, "00:00:03.170", "/src/io/output_time.cc", 229, "write_time_frame" ]
+- -             [ Msg , null, "00:00:03.591", "/src/mechanics/elasticity.cc", 518, "zero_time_step" ]
+  - [mech solver] lin. it: 0, reason: 3, residual: 0.00390799
+- -             [ Log , null, "00:00:03.659", "/src/io/output_time.cc", 229, "write_time_frame" ]
   - Skipping output stream: /C/Plocha/Bachelor_thesis/Python_scripts/../Results_and_analysis/Dependence_tensor_on_fracture_young_modul/all_cases/case_young_modul_100/tensor/output/mechanics.pvd in time: -1
-- -             [ Msg , null, "00:00:03.247", "/src/tools/time_governor.cc", 785, "view" ]
+- -             [ Msg , null, "00:00:03.751", "/src/tools/time_governor.cc", 785, "view" ]
   - TG[HM]:000001    t:    1.0000    dt:  1.000000    dt_int<  0.000000,  1.000000>
-- -             [ Msg , null, "00:00:03.248", "/src/flow/darcy_flow_lmh.cc", 566, "solve_time_step" ]
+- -             [ Msg , null, "00:00:03.751", "/src/flow/darcy_flow_lmh.cc", 566, "solve_time_step" ]
   - Flow time step - steady case
-- -             [ Msg , null, "00:00:03.338", "/src/flow/darcy_flow_lmh.cc", 598, "solve_nonlinear" ]
+- -             [ Msg , null, "00:00:03.856", "/src/flow/darcy_flow_lmh.cc", 598, "solve_nonlinear" ]
   - [nonlinear solver] norm of initial residual: 0
-- -             [ Log , null, "00:00:03.338", "/src/la/linsys_PETSC.cc", 371, "solve" ]
+- -             [ Log , null, "00:00:03.856", "/src/la/linsys_PETSC.cc", 371, "solve" ]
   - inserting petsc options: -ksp_type cg -pc_type icc  -pc_factor_levels 3 -ksp_diagonal_scale -ksp_diagonal_scale_fix -pc_factor_fill 6.0
-- -             [ Log , null, "00:00:03.357", "/src/la/linsys_PETSC.cc", 409, "solve" ]
+- -             [ Log , null, "00:00:03.880", "/src/la/linsys_PETSC.cc", 409, "solve" ]
   - convergence reason 3, number of iterations is 0
-- -             [ Msg , null, "00:00:03.357", "/src/flow/darcy_flow_lmh.cc", 642, "solve_nonlinear" ]
+- -             [ Msg , null, "00:00:03.880", "/src/flow/darcy_flow_lmh.cc", 642, "solve_nonlinear" ]
   - [schur solver] lin. it: 0, reason: 3, residual: 0
-- -             [ Msg , null, "00:00:03.358", "/src/flow/darcy_flow_lmh.cc", 651, "solve_nonlinear" ]
+- -             [ Msg , null, "00:00:03.881", "/src/flow/darcy_flow_lmh.cc", 651, "solve_nonlinear" ]
   - [nonlinear solver] lin. it: 0, reason: 3, residual: 0
-- -             [ Log , null, "00:00:04.169", "/src/la/linsys_PERMON.cc", 116, "solve" ]
+- -             [ Log , null, "00:00:04.846", "/src/la/linsys_PERMON.cc", 116, "solve" ]
   - inserting petsc options: -ksp_type cg -pc_type hypre -pc_hypre_type boomeramg
-- -             [ Log , null, "00:00:05.046", "/src/la/linsys_PERMON.cc", 159, "solve" ]
-  - convergence reason 3, number of iterations is 4
-- -             [ Msg , null, "00:00:05.047", "/src/mechanics/elasticity.cc", 592, "solve_linear_system" ]
-  - [mech solver] lin. it: 4, reason: 3, residual: 4061.1
-- -             [ Msg , null, "00:00:05.056", "/src/coupling/hm_iterative.cc", 379, "compute_iteration_error" ]
-  - |
-    HM Iteration 1 abs. difference: 0  rel. difference: 0
-    --------------------------------------------------------
-- -             [ Log , null, "00:00:05.144", "/src/io/output_time.cc", 229, "write_time_frame" ]
-  - Skipping output stream: /C/Plocha/Bachelor_thesis/Python_scripts/../Results_and_analysis/Dependence_tensor_on_fracture_young_modul/all_cases/case_young_modul_100/tensor/output/flow_fields.pvd in time: -1
-- -             [ Log , null, "00:00:05.218", "/src/io/output_time.cc", 214, "write_time_frame" ]
-  - Write output to output stream: /C/Plocha/Bachelor_thesis/Python_scripts/../Results_and_analysis/Dependence_tensor_on_fracture_young_modul/all_cases/case_young_modul_100/tensor/output/mechanics.pvd for time: 0
-- -             [ Log , null, "00:00:05.222", "/src/io/output_vtk.cc", 187, "write_data" ]
-  - write_data: Writing output (frame: 0, rank: 0) file: mechanics/mechanics-000000.vtu ... 
-- -             [ Log , null, "00:00:05.518", "/src/io/output_vtk.cc", 198, "write_data" ]
-  - O.K.
-- -             [ Msg , null, "00:00:05.572", "/src/tools/time_governor.cc", 785, "view" ]
-  - TG[HM]:000002    t:    2.0000    dt:  1.000000    dt_int<  0.000000,  0.000000>
-- -             [ Log , null, "00:00:06.401", "/src/la/linsys_PERMON.cc", 116, "solve" ]
-  - inserting petsc options: -ksp_type cg -pc_type hypre -pc_hypre_type boomeramg
-- -             [ Log , null, "00:00:07.250", "/src/la/linsys_PERMON.cc", 159, "solve" ]
+- -             [ Log , null, "00:00:05.674", "/src/la/linsys_PERMON.cc", 159, "solve" ]
   - convergence reason 3, number of iterations is 0
-- -             [ Msg , null, "00:00:07.250", "/src/mechanics/elasticity.cc", 592, "solve_linear_system" ]
-  - [mech solver] lin. it: 0, reason: 3, residual: 9.73281
-- -             [ Msg , null, "00:00:07.258", "/src/coupling/hm_iterative.cc", 379, "compute_iteration_error" ]
+- -             [ Msg , null, "00:00:05.675", "/src/mechanics/elasticity.cc", 592, "solve_linear_system" ]
+  - [mech solver] lin. it: 0, reason: 3, residual: 0.004035
+- -             [ Msg , null, "00:00:05.685", "/src/coupling/hm_iterative.cc", 379, "compute_iteration_error" ]
   - |
     HM Iteration 1 abs. difference: 0  rel. difference: 0
     --------------------------------------------------------
-- -             [ Log , null, "00:00:07.344", "/src/io/output_time.cc", 229, "write_time_frame" ]
+- -             [ Log , null, "00:00:05.783", "/src/io/output_time.cc", 229, "write_time_frame" ]
   - Skipping output stream: /C/Plocha/Bachelor_thesis/Python_scripts/../Results_and_analysis/Dependence_tensor_on_fracture_young_modul/all_cases/case_young_modul_100/tensor/output/flow_fields.pvd in time: -1
-- -             [ Log , null, "00:00:07.422", "/src/io/output_time.cc", 214, "write_time_frame" ]
+- -             [ Log , null, "00:00:05.864", "/src/io/output_time.cc", 214, "write_time_frame" ]
+  - Write output to output stream: /C/Plocha/Bachelor_thesis/Python_scripts/../Results_and_analysis/Dependence_tensor_on_fracture_young_modul/all_cases/case_young_modul_100/tensor/output/mechanics.pvd for time: 0
+- -             [ Log , null, "00:00:05.868", "/src/io/output_vtk.cc", 187, "write_data" ]
+  - write_data: Writing output (frame: 0, rank: 0) file: mechanics/mechanics-000000.vtu ... 
+- -             [ Log , null, "00:00:06.195", "/src/io/output_vtk.cc", 198, "write_data" ]
+  - O.K.
+- -             [ Msg , null, "00:00:06.247", "/src/tools/time_governor.cc", 785, "view" ]
+  - TG[HM]:000002    t:    2.0000    dt:  1.000000    dt_int<  0.000000,  0.000000>
+- -             [ Log , null, "00:00:07.203", "/src/la/linsys_PERMON.cc", 116, "solve" ]
+  - inserting petsc options: -ksp_type cg -pc_type hypre -pc_hypre_type boomeramg
+- -             [ Log , null, "00:00:08.029", "/src/la/linsys_PERMON.cc", 159, "solve" ]
+  - convergence reason 3, number of iterations is 0
+- -             [ Msg , null, "00:00:08.029", "/src/mechanics/elasticity.cc", 592, "solve_linear_system" ]
+  - [mech solver] lin. it: 0, reason: 3, residual: 0.00527185
+- -             [ Msg , null, "00:00:08.038", "/src/coupling/hm_iterative.cc", 379, "compute_iteration_error" ]
+  - |
+    HM Iteration 1 abs. difference: 0  rel. difference: 0
+    --------------------------------------------------------
+- -             [ Log , null, "00:00:08.139", "/src/io/output_time.cc", 229, "write_time_frame" ]
+  - Skipping output stream: /C/Plocha/Bachelor_thesis/Python_scripts/../Results_and_analysis/Dependence_tensor_on_fracture_young_modul/all_cases/case_young_modul_100/tensor/output/flow_fields.pvd in time: -1
+- -             [ Log , null, "00:00:08.235", "/src/io/output_time.cc", 214, "write_time_frame" ]
   - Write output to output stream: /C/Plocha/Bachelor_thesis/Python_scripts/../Results_and_analysis/Dependence_tensor_on_fracture_young_modul/all_cases/case_young_modul_100/tensor/output/mechanics.pvd for time: 1
-- -             [ Log , null, "00:00:07.426", "/src/io/output_vtk.cc", 187, "write_data" ]
+- -             [ Log , null, "00:00:08.240", "/src/io/output_vtk.cc", 187, "write_data" ]
   - write_data: Writing output (frame: 1, rank: 0) file: mechanics/mechanics-000001.vtu ... 
-- -             [ Log , null, "00:00:07.710", "/src/io/output_vtk.cc", 198, "write_data" ]
+- -             [ Log , null, "00:00:08.585", "/src/io/output_vtk.cc", 198, "write_data" ]
   - O.K.
-- -             [ Log , null, "00:00:07.760", "/src/io/output_time.cc", 229, "write_time_frame" ]
+- -             [ Log , null, "00:00:08.639", "/src/io/output_time.cc", 229, "write_time_frame" ]
   - Skipping output stream: /C/Plocha/Bachelor_thesis/Python_scripts/../Results_and_analysis/Dependence_tensor_on_fracture_young_modul/all_cases/case_young_modul_100/tensor/output/flow_fields.pvd in time: -1
-- -             [ Log , null, "00:00:07.761", "/src/io/output_vtk.cc", 603, "write_tail" ]
+- -             [ Log , null, "00:00:08.639", "/src/io/output_vtk.cc", 603, "write_tail" ]
   - write_tail: Writing output file (tail) /C/Plocha/Bachelor_thesis/Python_scripts/../Results_and_analysis/Dependence_tensor_on_fracture_young_modul/all_cases/case_young_modul_100/tensor/output/flow_fields.pvd ... 
-- -             [ Log , null, "00:00:07.761", "/src/io/output_vtk.cc", 608, "write_tail" ]
+- -             [ Log , null, "00:00:08.640", "/src/io/output_vtk.cc", 608, "write_tail" ]
   - O.K.
-- -             [ Log , null, "00:00:07.762", "/src/io/output_time.cc", 119, "~OutputTime" ]
+- -             [ Log , null, "00:00:08.640", "/src/io/output_time.cc", 119, "~OutputTime" ]
   - O.K.
-- -             [ Log , null, "00:00:07.769", "/src/io/output_time.cc", 214, "write_time_frame" ]
+- -             [ Log , null, "00:00:08.650", "/src/io/output_time.cc", 214, "write_time_frame" ]
   - Write output to output stream: /C/Plocha/Bachelor_thesis/Python_scripts/../Results_and_analysis/Dependence_tensor_on_fracture_young_modul/all_cases/case_young_modul_100/tensor/output/mechanics.pvd for time: 2
-- -             [ Log , null, "00:00:07.773", "/src/io/output_vtk.cc", 187, "write_data" ]
+- -             [ Log , null, "00:00:08.656", "/src/io/output_vtk.cc", 187, "write_data" ]
   - write_data: Writing output (frame: 2, rank: 0) file: mechanics/mechanics-000002.vtu ... 
-- -             [ Log , null, "00:00:08.056", "/src/io/output_vtk.cc", 198, "write_data" ]
+- -             [ Log , null, "00:00:08.964", "/src/io/output_vtk.cc", 198, "write_data" ]
   - O.K.
-- -             [ Log , null, "00:00:08.056", "/src/io/output_vtk.cc", 603, "write_tail" ]
+- -             [ Log , null, "00:00:08.964", "/src/io/output_vtk.cc", 603, "write_tail" ]
   - write_tail: Writing output file (tail) /C/Plocha/Bachelor_thesis/Python_scripts/../Results_and_analysis/Dependence_tensor_on_fracture_young_modul/all_cases/case_young_modul_100/tensor/output/mechanics.pvd ... 
-- -             [ Log , null, "00:00:08.056", "/src/io/output_vtk.cc", 608, "write_tail" ]
+- -             [ Log , null, "00:00:08.964", "/src/io/output_vtk.cc", 608, "write_tail" ]
   - O.K.
-- -             [ Log , null, "00:00:08.057", "/src/io/output_time.cc", 119, "~OutputTime" ]
+- -             [ Log , null, "00:00:08.965", "/src/io/output_time.cc", 119, "~OutputTime" ]
   - O.K.

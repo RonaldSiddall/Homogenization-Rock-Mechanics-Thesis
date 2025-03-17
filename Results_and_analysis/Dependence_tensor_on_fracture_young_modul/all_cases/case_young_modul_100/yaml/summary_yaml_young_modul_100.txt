@@ -5,7 +5,7 @@ SCRIPT USED:
   - create_yaml.py
 INPUT:
   - Config file used: C:/Plocha/Bachelor_thesis/Python_scripts/config_file.yaml
-  - Mesh file used: C:/Plocha/Bachelor_thesis/Results_and_analysis/Dependence_tensor_on_fracture_young_modul/all_cases/case_young_modul_100/mesh/mesh_young_modul_100_healed.msh
+  - Mesh file used: C:/Plocha/Bachelor_thesis/Results_and_analysis/Dependence_tensor_on_fracture_young_modul/all_cases/base_mesh_for_all_cases_healed.msh
   - YAML template used: C:/Plocha/Bachelor_thesis/Python_scripts/src_bachelor_thesis/Templates_dont_delete/template.yaml
 OUTPUT:
   - YAML file created: C:/Plocha/Bachelor_thesis/Python_scripts/../Results_and_analysis/Dependence_tensor_on_fracture_young_modul/all_cases/case_young_modul_100/yaml/yaml_young_modul_100.yaml
@@ -17,7 +17,7 @@ HOMOGENIZATION PARAMETERS
   - Young modulus of fractures: 500.0 Pascals
 ----------------------------------------------------------------------
 ADDITIONAL INFORMATION
-  - Process started at: 2025-03-03 05:08:33
-  - Process finished at: 2025-03-03 05:08:33
+  - Process started at: 2025-03-17 02:28:32
+  - Process finished at: 2025-03-17 02:28:32
   - Total running time: 0.02 seconds
 ----------------------------------------------------------------------
