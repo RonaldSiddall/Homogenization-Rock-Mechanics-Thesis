@@ -162,7 +162,6 @@ def check_values_in_config_file_mesh(config_file):
 def check_values_in_config_file_yaml(config_file):
     # Loading of the parameters from the config file
     config = ConfigManager(config_file)
-    boundary_conditions_have_equal_displacement = config.get_boundary_conditions_have_equal_displacement()
     displacement_percentage_all_boundary_conditions = config.get_displacement_percentage_all_boundary_conditions()
     displacement_percentage_x = config.get_displacement_percentage_x()
     displacement_percentage_y = config.get_displacement_percentage_y()
@@ -173,32 +172,32 @@ def check_values_in_config_file_yaml(config_file):
 
     control_variable = True
 
-    if abs(displacement_percentage_all_boundary_conditions) >= 1:
+    if abs(displacement_percentage_all_boundary_conditions) >= 1 or displacement_percentage_all_boundary_conditions==0:
         print("\n===============================================================================")
         print("Parameter validation in configuration file failed.")
         print("See error message below and try again with correct parameter values:\n")
-        print(f"Error: displacement_percentage_all_boundary_conditions = {displacement_percentage_all_boundary_conditions} is invalid.\nReason: displacement_percentage_all_boundary_conditions must be between 0 and 1.")
+        print(f"Error: displacement_percentage_all_boundary_conditions = {displacement_percentage_all_boundary_conditions} is invalid.\nReason: displacement_percentage_all_boundary_conditions must be between 0 and 1 (exclusive).")
         print("===============================================================================\n")
         control_variable = False
-    elif abs(displacement_percentage_x) >= 1:
+    elif abs(displacement_percentage_x) >= 1 or displacement_percentage_x == 0:
         print("\n===============================================================================")
         print("Parameter validation in configuration file failed.")
         print("See error message below and try again with correct parameter values:\n")
-        print(f"Error: displacement_percentage_x = {displacement_percentage_x} is invalid.\nReason: displacement_percentage_x must be between 0 and 1.")
+        print(f"Error: displacement_percentage_x = {displacement_percentage_x} is invalid.\nReason: displacement_percentage_x must be between 0 and 1 (exclusive).")
         print("===============================================================================\n")
         control_variable = False
-    elif abs(displacement_percentage_y) >= 1:
+    elif abs(displacement_percentage_y) >= 1 or displacement_percentage_y == 0:
         print("\n===============================================================================")
         print("Parameter validation in configuration file failed.")
         print("See error message below and try again with correct parameter values:\n")
-        print(f"Error: displacement_percentage_y = {displacement_percentage_y} is invalid.\nReason: displacement_percentage_y must be between 0 and 1.")
+        print(f"Error: displacement_percentage_y = {displacement_percentage_y} is invalid.\nReason: displacement_percentage_y must be between 0 and 1 (exclusive).")
         print("===============================================================================\n")
         control_variable = False
-    elif abs(displacement_percentage_shear) >= 1:
+    elif abs(displacement_percentage_shear) >= 1 or displacement_percentage_shear == 0:
         print("\n===============================================================================")
         print("Parameter validation in configuration file failed.")
         print("See error message below and try again with correct parameter values:\n")
-        print(f"Error: displacement_percentage_shear = {displacement_percentage_shear} is invalid.\nReason: displacement_percentage_shear must be between 0 and 1.")
+        print(f"Error: displacement_percentage_shear = {displacement_percentage_shear} is invalid.\nReason: displacement_percentage_shear must be between 0 and 1 (exclusive).")
         print("===============================================================================\n")
         control_variable = False
     elif cross_section_multiplier <= 0 or cross_section_multiplier > 1:
