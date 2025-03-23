@@ -60,13 +60,13 @@ mesh_and_fracture_network_settings:
       # so von_mises_kappa >= 0
       von_mises_kappa: 0
   # All of these parameters have to be positive
-  # They define the structure and setting of the created finite element mesh ie the elements (triangles)
+  # They define the structure and setting of the created finite element mesh, i.e., the elements (triangles)
   gmsh_options_parameters:
     fracture_mesh_step: 0.03
     tolerance_initial_delaunay: 0.0001
     tolerance: 0.0005
     tolerance_boolean: 0.0001
-  # These settings are optional and do not affect the resulting .msh file
+  # These settings below are optional and do not affect the resulting .msh file
   optional_settings:
     # If "yes" is chosen, a window in GMSH software with a preview of the created DFN will be displayed before the healing process
     # Note: Displayed fracture network HAS NOT yet undergone the healing process ie .msh is shown (not _healed.msh)
@@ -77,7 +77,7 @@ mesh_and_fracture_network_settings:
     # Directory where the summary is created, relative path
     dir_of_where_summary_is_created_mesh: "../Results_and_analysis/Dependence_tensor_on_cross_section/data_analysis"
     # If "yes" is selected, then a new name (defined underneath) will be used for the summarizing .txt file
-    # In any other case the default name will be used: parameter_summary.txt
+    # In any other case, the default name will be used: parameter_summary.txt
     change_name_of_txt_file_summary_mesh: "yes"
     new_txt_file_summary_name_mesh: "summary_base_mesh_for_all_cases"
 # *************************************************************************************************************************
@@ -87,23 +87,24 @@ mesh_and_fracture_network_settings:
 # *************************************************************************************************************************
 # Settings for the script create_yaml.py that creates the .yaml file that is then used for the simulation
 homogenization_and_yaml_creation:
-  # input: apart from the displacements mentioned below the config_file and .msh (should be healed) file
-  # are used as input arguments when calling the script
+  # input: apart from the displacements mentioned below, the config_file and .msh (should be healed) file
+  # are used as input arguments when calling this script
   # Note: it is expected no more than 100% of displacement will be used ie displacement percentages listed below must be
-  # between -1 and 1, in other words, the absolute value of the given displacement percentage is less or equal to one
+  # between -1 and 1 (and also not equal to 0)
+  # In other words, the absolute value of the given displacement percentage is less or equal to one (and not equal to 0)
   input:
-    # Determines whether all boundary conditions should have the same displacement.
+    # Determines whether all boundary conditions should have the same displacement
     # If set to "yes", the same displacement value will be applied in all directions (x, y, shear)
     # If set to "no", separate values for x, y, and shear displacement must be specified
     boundary_conditions_have_equal_displacement: "yes"
-    # If `boundary_conditions_have_equal_displacement` is set to "yes",
+    # If boundary_conditions_have_equal_displacement is set to "yes",
     # this value will be used for displacements in all directions (x, y, and shear)
     displacement_percentage_all_boundary_conditions: 0.07
-    # Displacement percentage along the x-axis.
-    # A negative value represents compression, while a positive value represents expansion
+    # Displacement percentage along the x-axis
+    # A negative value represents compression, while a positive value represents tension
     displacement_percentage_x: -0.12
-    # Displacement percentage along the y-axis.
-    # A negative value represents compression, while a positive value represents expansion
+    # Displacement percentage along the y-axis
+    # A negative value represents compression, while a positive value represents tension
     displacement_percentage_y: 0.13
     # Shear displacement percentage, representing deformation where one axis moves in proportion to another
     # A positive value corresponds to one direction of shear strain, and a negative value corresponds to the opposite direction
@@ -116,7 +117,7 @@ homogenization_and_yaml_creation:
     # Directory where the generated .yaml file will be saved, is relative
     dir_where_yaml_is_created: "../Results_and_analysis/Dependence_tensor_on_cross_section/tension_0_07/all_cases/case_cross_section_0_10/yaml/"
     # If set to "yes", the generated .yaml file will have a custom name instead of the default one
-    # default name of created .yaml: generated_yaml.yaml
+    # Default name of created .yaml: generated_yaml.yaml
     change_names_of_computed_yaml: "yes"
     # The custom name for the generated .yaml file
     # This will be used if change_names_of_computed_yaml is set to "yes"
@@ -129,12 +130,12 @@ homogenization_and_yaml_creation:
     # This multiplier is allowed only for values within 0 and 1 (including 1)
     cross_section_multiplier: 0.01
     # Some examples of real life rock Young moduli (given in GPa) found in literature:
-    # Andesite	20 - 60 GPa, Basalt	60 - 100 GPa, Granite	40 - 70 GPa
-    # IMPORTANT: the value below is expected to be in GPa
+    # Andesite:	20-60 GPa, Basalt: 60-100 GPa, Granite:	40-70 GPa
+    # IMPORTANT: the value below is expected to be in GPa, automatic conversion to Pascals is done implicitly
     young_modul_rock_gpa: 50
     # This parameter is a multiplier for the reduction in the Young's modulus of fractures compared to the surrounding rock
     # A typical value of reduction_value_for_fractures is between 100 and 1000
-    # => Meaning the fractures have a Young modulus about 100 to 1000 times smaller than the surrounding rock
+    # => Meaning the fractures have a Young modulus about 100 to 1000 times smaller than the surrounding rock (matrix)
     reduction_value_for_fractures: 500
 
   optional_settings:
