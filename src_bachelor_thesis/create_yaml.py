@@ -3,21 +3,25 @@ import sys
 import time
 from Utility_methods.parameter_summaries import parameters_short_summary_print_out_yaml
 from Logic_classes.GenerateYaml import GenerateYaml
+from Utility_methods.check_values_in_config_file import check_values_in_config_file_yaml
 
 # This function generates a mesh (.msh file) using the provided configuration file (config_file.yaml)
 def create_yaml(config_file, mesh_file):
-    try:
-        start_time = time.time()
-        GenerateYaml(config_file, mesh_file).generate_yaml()
-        end_time = time.time()
-        name_of_script_yaml = os.path.basename(__file__)
-        parameters_short_summary_print_out_yaml(config_file, mesh_file, start_time, end_time, name_of_script_yaml)
-    except Exception as error_mess:
-        # If an error occurs during the execution, this prints the error message
-        print("-------------------------------------------------------------------------------")
-        print("\nAn error occurred during execution. The error message is written below:\n")
-        print(str(error_mess) + "\n")
-        print("-------------------------------------------------------------------------------")
+    # Checks the relevant values of the parameters used to create the .yaml file
+    # If at least one parameter is invalid (False is returned) then this method stops immediately
+    if check_values_in_config_file_yaml(config_file):
+        try:
+            start_time = time.time()
+            GenerateYaml(config_file, mesh_file).generate_yaml()
+            end_time = time.time()
+            name_of_script_yaml = os.path.basename(__file__)
+            parameters_short_summary_print_out_yaml(config_file, mesh_file, start_time, end_time, name_of_script_yaml)
+        except Exception as error_mess:
+            # If an error occurs during the execution, this prints the error message
+            print("-------------------------------------------------------------------------------")
+            print("\nAn error occurred during execution. The error message is written below:\n")
+            print(str(error_mess) + "\n")
+            print("-------------------------------------------------------------------------------")
 
 if __name__ == "__main__":
     try:
