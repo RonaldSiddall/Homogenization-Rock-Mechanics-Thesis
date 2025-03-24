@@ -18,10 +18,10 @@ mesh_and_fracture_network_settings:
     new_mesh_file_name: "base_mesh_for_all_cases"
 
   discreet_fracture_network_parameters:
-    #----------------------------
+    #--------------------------------------------------------------------------------
     # Complete detailed description of each of these values and their physical interpretation is written in the theoretical
     # part of the bachelor thesis, for more information look into chapter 2 "Theory"
-    #----------------------------
+    #--------------------------------------------------------------------------------
     # These are the dimensions of the domain, that the fractures will be generated in
     # [1, 1] is a unit square with its middle point in the origin of the XYZ coordinates
     # [2, 1] would be a rectangle that also has its middle point in the origin
