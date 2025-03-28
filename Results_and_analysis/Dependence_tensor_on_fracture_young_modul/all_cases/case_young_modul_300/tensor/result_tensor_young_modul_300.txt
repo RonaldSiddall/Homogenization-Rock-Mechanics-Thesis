@@ -1,0 +1,14 @@
+============================================================================================
+                    Effective elastic tensor in matrix form for 2D problems
+============================================================================================
+
+            3415352499.9337206                  93705176.78752898              93593375.7448116
+C =         93177945.94322675                 3461178481.9079914              43691105.315074936
+            94400485.64699708                  45861195.55394563              1121898729.2002919
+
+
+--------------------------------------------------------------------------------------------
+This result was computed using these files:
+C:/Plocha/Bachelor_thesis/Python_scripts/../Results_and_analysis/Dependence_tensor_on_fracture_young_modul/all_cases/case_young_modul_300/tensor/output/mechanics/mechanics-000000.vtu
+C:/Plocha/Bachelor_thesis/Python_scripts/../Results_and_analysis/Dependence_tensor_on_fracture_young_modul/all_cases/case_young_modul_300/tensor/output/mechanics/mechanics-000001.vtu
+C:/Plocha/Bachelor_thesis/Python_scripts/../Results_and_analysis/Dependence_tensor_on_fracture_young_modul/all_cases/case_young_modul_300/tensor/output/mechanics/mechanics-000002.vtu

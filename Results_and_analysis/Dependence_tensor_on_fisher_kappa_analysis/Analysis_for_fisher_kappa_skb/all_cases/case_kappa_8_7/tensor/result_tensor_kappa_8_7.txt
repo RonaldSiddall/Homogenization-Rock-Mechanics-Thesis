@@ -1,0 +1,14 @@
+============================================================================================
+                    Effective elastic tensor in matrix form for 2D problems
+============================================================================================
+
+            5810.147094699664                   349.0894790753543              -669.8804956352905
+C =         350.30422279448715                4674.402744622239               -736.8566761085945
+            -376.983053095739                  -334.9497882239287             2416.570998729975
+
+
+--------------------------------------------------------------------------------------------
+This result was computed using these files:
+C:/Plocha/Bachelor_thesis/Python_scripts/../Results_and_analysis/Dependence_tensor_on_fisher_kappa_analysis/Analysis_for_fisher_kappa_skb/all_cases/case_kappa_8_7/tensor/output/mechanics/mechanics-000000.vtu
+C:/Plocha/Bachelor_thesis/Python_scripts/../Results_and_analysis/Dependence_tensor_on_fisher_kappa_analysis/Analysis_for_fisher_kappa_skb/all_cases/case_kappa_8_7/tensor/output/mechanics/mechanics-000001.vtu
+C:/Plocha/Bachelor_thesis/Python_scripts/../Results_and_analysis/Dependence_tensor_on_fisher_kappa_analysis/Analysis_for_fisher_kappa_skb/all_cases/case_kappa_8_7/tensor/output/mechanics/mechanics-000002.vtu

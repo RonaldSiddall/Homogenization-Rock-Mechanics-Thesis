@@ -1,0 +1,14 @@
+============================================================================================
+                    Effective elastic tensor in matrix form for 2D problems
+============================================================================================
+
+            7183.431876431567         602.1217590609867         297.87939725056873
+C =         683.5429394542139         8976.43558100663          539.9620759778121
+            -72.59383554133439        235.25114102204375        3096.960985467607
+
+
+--------------------------------------------------------------------------------------------
+This result was computed using these files:
+C:/Plocha/Bachelor_thesis/Python_scripts/../Results_and_analysis/Displacement_sequences_analysis/all_cases/case_p_neg_0_09/output/mechanics/mechanics-000000.vtu
+C:/Plocha/Bachelor_thesis/Python_scripts/../Results_and_analysis/Displacement_sequences_analysis/all_cases/case_p_neg_0_09/output/mechanics/mechanics-000001.vtu
+C:/Plocha/Bachelor_thesis/Python_scripts/../Results_and_analysis/Displacement_sequences_analysis/all_cases/case_p_neg_0_09/output/mechanics/mechanics-000002.vtu

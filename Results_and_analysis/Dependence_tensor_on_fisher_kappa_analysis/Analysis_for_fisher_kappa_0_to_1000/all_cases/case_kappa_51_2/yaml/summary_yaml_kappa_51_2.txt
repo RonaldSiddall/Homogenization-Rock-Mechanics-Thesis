@@ -1,0 +1,23 @@
+======================================================================
+                         YAML CREATION SUMMARY
+======================================================================
+SCRIPT USED:
+  - create_yaml.py
+INPUT:
+  - Config file used: C:/Plocha/Bachelor_thesis/Python_scripts/config_file.yaml
+  - Mesh file used: C:/Plocha/Bachelor_thesis/Results_and_analysis/Dependence_tensor_on_fisher_kappa_analysis/Analysis_for_fisher_kappa_0_to_1000/all_cases/case_kappa_51_2/mesh/mesh_kappa_51_2_healed.msh
+  - YAML template used: C:/Plocha/Bachelor_thesis/Python_scripts/src_bachelor_thesis/Templates_dont_delete/template.yaml
+OUTPUT:
+  - YAML file created: C:/Plocha/Bachelor_thesis/Python_scripts/../Results_and_analysis/Dependence_tensor_on_fisher_kappa_analysis/Analysis_for_fisher_kappa_0_to_1000/all_cases/case_kappa_51_2/yaml/yaml_kappa_51_2.yaml
+----------------------------------------------------------------------
+HOMOGENIZATION PARAMETERS
+  - Displacement percentage used for all boundary conditions: 0.07 (7.000000000000001% expansion)
+  - Cross section: 0.01
+  - Young modulus of rock: 50000 Pascals
+  - Young modulus of fractures: 100.0 Pascals
+----------------------------------------------------------------------
+ADDITIONAL INFORMATION
+  - Process started at: 2025-03-03 03:16:26
+  - Process finished at: 2025-03-03 03:16:26
+  - Total running time: 0.02 seconds
+----------------------------------------------------------------------
