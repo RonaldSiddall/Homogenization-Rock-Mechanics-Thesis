@@ -57,8 +57,8 @@ class GenerateFractures:
         # Sets sample range for population of fractures
         population_of_fractures.set_sample_range(self.sample_range)
 
-        # Defines the volume dimensions (increased Z component for 3D), has to be non-zero, otherwise the amount
-        # of fractures is equal to 1 (amount of fractures tied to volume, for V = 0 => 1 fracture)
+        # Defines the volume dimensions (increased Z component for 3D), has to be non-zero, otherwise the number
+        # of fractures is equal to 1 (number of fractures tied to volume, for V = 0 => 1 fracture)
         dimensions_volume = [self.rectangle_dimensions[0], self.rectangle_dimensions[1], 1]
 
         # Position generator for fracture placement within the defined volume

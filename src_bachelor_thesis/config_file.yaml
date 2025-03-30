@@ -127,7 +127,8 @@ homogenization_and_yaml_creation:
     # The fracture cross-section is calculated by multiplying the domain size by a chosen multiplier
     # A common multiplier is 0.01
     # For example, with a 1x1 meter domain (1 m²), the fractures are scaled to centimeters (1/100 of the size)
-    # This multiplier is allowed only for values within 0 and 1 (including 1)
+    # This multiplier is theoretically allowed only for values within 0 and 1 (including 1)
+    # In real life a maximum value of 0.1 usually considered
     cross_section_multiplier: 0.01
     # Some examples of real life rock Young moduli (given in GPa) found in literature:
     # Andesite:	20-60 GPa, Basalt: 60-100 GPa, Granite:	40-70 GPa
