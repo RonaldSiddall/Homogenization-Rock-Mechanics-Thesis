@@ -33,7 +33,7 @@ mesh_and_fracture_network_settings:
     # k_r is defined for k_r > 2, for k_r = 3 the model is "self-similar"
     # k_r calibrated for the tectonic continuum has values between: 2.5 to 2.79
     # k_r is calibrated by connectivity analysis has values between: 2.5 to 3.45
-    k_r: 3
+    k_r: 2.5
     # In SKB the diam_range is the interval [r_0, r_infty]; it is defined for 0 < r_0 < r_infty
     diam_range: [0.038, 169]
     # p32_r0_to_r_infty is the area density of fractures i.e. area of fractures per unit volume for interval [r_0, r_infty]
@@ -54,6 +54,9 @@ mesh_and_fracture_network_settings:
       # so fisher_kappa >= 0
       fisher_kappa: 10
     von_mises_parameters:
+      # VonMisesOrientation used to generate a Fracture has 2 parameters: von_mises_trend and von_mises_kappa
+      # For the purpose of Bachelor thesis, both are always equal to zero... Said parameters do not affect the results,
+      # because the thesis only generates 2D fractures. These parameters are important for 3D simulations
       # Von Mises Trend in general is defined for (0, 360)°
       von_mises_trend: 0
       # Von Mises kappa is defined for positive values, but the usage of a limit towards the value of zero is allowed
