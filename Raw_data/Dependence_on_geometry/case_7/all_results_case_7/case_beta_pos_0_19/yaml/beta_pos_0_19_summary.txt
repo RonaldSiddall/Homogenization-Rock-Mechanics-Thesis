@@ -1,0 +1,23 @@
+======================================================================
+                         YAML CREATION SUMMARY
+======================================================================
+SCRIPT USED:
+  - create_yaml.py
+INPUT:
+  - Config file used: C:/Plocha/Bachelor_thesis/Python_scripts/config_file.yaml
+  - Mesh file used: C:/Plocha/Bachelor_thesis/Python_scripts/Raw_data/Dependence_on_geometry/case_7/base_mesh_case_7_healed.msh
+  - YAML template used: C:/Plocha/Bachelor_thesis/Python_scripts/src_bachelor_thesis/Templates_dont_delete/template.yaml
+OUTPUT:
+  - YAML file created: C:/Plocha/Bachelor_thesis/Python_scripts/Raw_data/Dependence_on_geometry/case_7/all_results_case_7/case_beta_pos_0_19/yaml/beta_pos_0_19.yaml
+----------------------------------------------------------------------
+HOMOGENIZATION PARAMETERS
+  - Displacement percentage used for all boundary conditions: 0.19 (19.0% expansion)
+  - Cross section: 0.05
+  - Young modulus of rock: 31.5 GPa (31500000000.0 Pa)
+  - Young modulus of fractures: 0.063 GPa (63000000.0 Pa)
+----------------------------------------------------------------------
+ADDITIONAL INFORMATION
+  - Process started at: 2025-04-19 00:46:23
+  - Process finished at: 2025-04-19 00:46:23
+  - Total running time: 0.03 seconds
+----------------------------------------------------------------------

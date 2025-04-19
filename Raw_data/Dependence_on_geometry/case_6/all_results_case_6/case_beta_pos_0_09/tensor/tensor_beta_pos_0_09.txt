@@ -1,0 +1,14 @@
+============================================================================================
+                    Effective elastic tensor in matrix form for 2D problems
+============================================================================================
+
+            2110793594.4720213                  12417308.397160487             -42085493.239588045
+C =         14772608.86242279                 1971335318.449545               62544784.32323703
+            -44409607.02896506                 61645602.332775556             487159711.3234883
+
+
+--------------------------------------------------------------------------------------------
+This result was computed using these files:
+C:/Plocha/Bachelor_thesis/Python_scripts/Raw_data/Dependence_on_geometry/case_6/all_results_case_6/case_beta_pos_0_09/tensor/simulation_output/mechanics/mechanics-000000.vtu
+C:/Plocha/Bachelor_thesis/Python_scripts/Raw_data/Dependence_on_geometry/case_6/all_results_case_6/case_beta_pos_0_09/tensor/simulation_output/mechanics/mechanics-000001.vtu
+C:/Plocha/Bachelor_thesis/Python_scripts/Raw_data/Dependence_on_geometry/case_6/all_results_case_6/case_beta_pos_0_09/tensor/simulation_output/mechanics/mechanics-000002.vtu
