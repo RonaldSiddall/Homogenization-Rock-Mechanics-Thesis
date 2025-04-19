@@ -1,5 +1,15 @@
-# Test goal: First testing for bachelor thesis
-# Author: Ronald Ch. Siddall
+# ===================================================================
+#  Bachelor Thesis: Homogenization of Rock Mechanics (2025)
+#  Input File for Flow123d Simulator
+# ===================================================================
+# Author: Ronald Christopher Siddall
+# Program: 3rd Year, Applied Sciences in Engineering
+# University: Technical University of Liberec
+# ===================================================================
+# This file was used as an input into the Flow123d simulator to 
+# simulate the mechanical behavior of fractured rock using the 
+# Discrete Fracture Model (DFM), as part of my bachelor thesis work.
+# ===================================================================
 
 flow123d_version: 3.1.0
 problem: !Coupling_Sequential
