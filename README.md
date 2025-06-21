@@ -4,8 +4,9 @@ This repository supports the bachelor's thesis titled **"Homogenization in Rock 
 It serves to manage versioning, store essential computations, and preserve all relevant data and source code developed and used throughout the research.  
 The repository acts as an archive of results, simulations, and implementation details, useful for future reference or further development.
 
-A detailed description of the methodology, results, and conclusions can be found in the thesis document available here:  
-**`bachelor_thesis_siddall_czech.pdf`**
+A detailed description of the methodology, results, and conclusions can be found in the thesis document available here in czech/english:  
+[Open or Download PDF](https://github.com/RonaldSiddall/Homogenization-Rock-Mechanics-Thesis/raw/main/bachelor_thesis_siddall_czech.pdf)
+[Open or Download PDF](https://github.com/RonaldSiddall/Homogenization-Rock-Mechanics-Thesis/raw/main/bachelor_thesis_siddall_english.pdf)
 
 ## Repository Structure
 
@@ -16,10 +17,11 @@ A detailed description of the methodology, results, and conclusions can be found
   Post-processed data and results from analytical evaluations of the simulation outputs.
 
 - **src_bachelor_thesis/**  
-  Source code developed for the thesis project, including:
-  - Fracture network generation
+  Source code developed by the author for the bachelor thesis project, including:
+  - Random fracture network generation
   - Homogenization simulations
-  - Supporting scripts and utilities
+  - Methods for calculating the effective elasticity tensor
+  - Other supporting scripts and utilities
 
 ---
 
